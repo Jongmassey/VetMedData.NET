@@ -25,7 +25,8 @@ namespace VetMedData.NET.Util
         GetTargetSpeciesForExpiredVmdProduct = 1,
         GetTargetSpeciesForExpiredEmaProduct = 2,
         PersistentPid = 4,
-        OverrideCachedCopy = 8
+        OverrideCachedCopy = 8,
+        GetPharmaceuticalComposition = 16
     }
 
     /// <summary>
@@ -97,6 +98,15 @@ namespace VetMedData.NET.Util
             {
                 _vmdpid = await PopulateExpiredProductTargetSpeciesFromEma(_vmdpid);
             }
+
+            //process active ingredient options
+            if ((options & PidFactoryOptions.GetPharmaceuticalComposition) != 0 &&
+                ((_cachedCopyOptions & PidFactoryOptions.GetPharmaceuticalComposition) == 0)
+                || pidUpdated)
+            {
+                _vmdpid = await PopulateProductPharmaceuticalComposition(_vmdpid);
+            }
+
 
             //persist new copy 
             if ((options & PidFactoryOptions.PersistentPid) != 0 && pidUpdated)
@@ -475,6 +485,86 @@ namespace VetMedData.NET.Util
             }
 
             return dt;
+        }
+
+        private static async Task<VMDPID> PopulateProductPharmaceuticalComposition(VMDPID inpid)
+        {
+            var products = new ConcurrentBag<RealProduct>(inpid.RealProducts.Where(p=>!EPARTools.IsEPAR(p.SPC_Link)));
+            var tasks = products.Select(async p => await PopulatePharmaceuticalComposition(p));
+            await Task.WhenAll(tasks);
+            inpid.ExpiredProducts = products.Where(p => p.GetType() == typeof(ExpiredProduct)).Select(ep=>(ExpiredProduct) ep)
+                .Union(inpid.ExpiredProducts.Where(ep => !EPARTools.IsEPAR(ep.SPC_Link))).ToList();
+            inpid.CurrentlyAuthorisedProducts = products.Where(p => p.GetType() == typeof(CurrentlyAuthorisedProduct)).Select(ep => (CurrentlyAuthorisedProduct)ep)
+                .Union(inpid.CurrentlyAuthorisedProducts.Where(ep => !EPARTools.IsEPAR(ep.SPC_Link))).ToList();
+            inpid.SuspendedProducts = products.Where(p => p.GetType() == typeof(SuspendedProduct)).Select(ep => (SuspendedProduct)ep)
+                .Union(inpid.SuspendedProducts.Where(ep => !EPARTools.IsEPAR(ep.SPC_Link))).ToList();
+            return inpid;
+        }
+
+        private static async Task PopulatePharmaceuticalComposition(RealProduct product)
+        {
+            var tempDoc = "";
+            // ReSharper disable once RedundantAssignment
+            var tempDocx = "";
+            // ReSharper disable once RedundantAssignment
+            var tf = "";
+            var isDoc = product.SPC_Link.EndsWith(".doc", StringComparison.InvariantCultureIgnoreCase);
+            try
+            {
+                if (isDoc)
+                {
+                    tf = Path.GetTempFileName();
+                    tempDoc = $"{tf}.doc";
+                    File.Move(tf, tempDoc);
+
+                    using (var fs = File.OpenWrite(tempDoc))
+                    {
+                        (await GetHttpStream(product.SPC_Link)).CopyTo(fs);
+                        fs.Flush();
+                    }
+
+                    tempDocx = WordConverter.ConvertDocToDocx(tempDoc);
+                }
+                else
+                {
+                    tf = Path.GetTempFileName();
+                    tempDocx = $"{tf}.docx";
+                    File.Move(tf, tempDocx);
+                    using (var fs = File.OpenWrite(tempDocx))
+                    {
+                        (await GetHttpStream(product.SPC_Link)).CopyTo(fs);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            using (var spcStream = File.Open(tempDocx, FileMode.Open))
+            {
+                try
+                {
+                    var pc = SPCParser.GetPharmaceuticalComposition(spcStream);
+                    product.PharmaceuticalComposition = pc;
+                }
+                catch (Exception e)
+                {
+                    
+                    throw new AggregateException($"Error encountered for {product.Name}",e);
+                }
+                
+            }
+
+            if (!string.IsNullOrEmpty(tempDoc) && File.Exists(tempDoc))
+            {
+                File.Delete(tempDoc);
+            }
+
+            if (!string.IsNullOrEmpty(tempDocx) && File.Exists(tempDocx))
+            {
+                File.Delete(tempDocx);
+            }
         }
 
     }

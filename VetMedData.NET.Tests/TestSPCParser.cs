@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using VetMedData.NET.Util;
@@ -11,6 +12,48 @@ namespace VetMedData.Tests
     [TestClass]
     public class TestSPCParser
     {
+        [TestMethod, DeploymentItem(@"TestFiles\TestSPCParser\", @"TestFiles\TestSPCParser\")]
+        public void TestPharmaceuticalCompositionExtraction()
+        {
+            string pathtospc = @"TestFiles\TestSPCParser\SPC_124816.doc";
+            pathtospc = WordConverter.ConvertDocToDocx(pathtospc);
+
+            var expectedOutput = new[]
+            {
+                new Tuple<string, double, string>("Pyrethrins (free)",0.05d,"% w/w"),
+                new Tuple<string, double, string>("Piperonyl Butoxide (free)",0.5d,"% w/w"),
+                new Tuple<string, double, string>("Sectrol Concentrate supplying:",double.NaN, "% w/w"),
+                new Tuple<string, double, string>("Pyrethrins (encapsulated)",0.1d,"% w/w"),
+                new Tuple<string, double, string>("Piperonyl Butoxide (encapsulated)",0.8d,"% w/w"),
+            };
+
+            var pc = SPCParser.GetPharmaceuticalComposition(pathtospc);
+            //File.Delete(pathtospc);
+
+            var intersectionCount = pc.Intersect(expectedOutput).Count();
+            Assert.IsTrue(intersectionCount == expectedOutput.Length,
+                $"Intersection count:{intersectionCount}, expected {expectedOutput.Length}");
+        }
+        [TestMethod, DeploymentItem(@"TestFiles\TestSPCParser\", @"TestFiles\TestSPCParser\")]
+        public void TestPharmaceuticalCompositionExtraction2()
+        {
+            string pathtospc = @"TestFiles\TestSPCParser\SPC_244480.doc";
+            pathtospc = WordConverter.ConvertDocToDocx(pathtospc);
+
+            var expectedOutput = new[]
+            {
+                new Tuple<string, double, string>("Benzathine Penicillin",11.25d,"% w/v"),
+                new Tuple<string, double, string>("Procaine Penicillin", 15d, "% w/v"),
+            };
+
+            var pc = SPCParser.GetPharmaceuticalComposition(pathtospc);
+            //File.Delete(pathtospc);
+
+            var intersectionCount = pc.Intersect(expectedOutput).Count();
+            Assert.IsTrue(intersectionCount == expectedOutput.Length,
+                $"Intersection count:{intersectionCount}, expected {expectedOutput.Length}");
+        }
+
         [TestMethod, DeploymentItem(@"TestFiles\TestSPCParser\", @"TestFiles\TestSPCParser\")]
         public void TestTargetSpeciesExtraction()
         {

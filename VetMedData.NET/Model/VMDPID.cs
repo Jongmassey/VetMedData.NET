@@ -32,9 +32,9 @@ namespace VetMedData.NET.Model
         /// <summary>
         /// Unions together all product types except Homoeopathic
         /// </summary>
-        public IEnumerable<ReferenceProduct> RealProducts => CurrentlyAuthorisedProducts
-            .Union(SuspendedProducts.Select(s => (ReferenceProduct)s))
-            .Union(ExpiredProducts.Select(s => (ReferenceProduct)s));
+        public IEnumerable<RealProduct> RealProducts => CurrentlyAuthorisedProducts
+            .Union(SuspendedProducts.Select(s => (RealProduct)s))
+            .Union(ExpiredProducts.Select(s => (RealProduct)s));
 
         /// <summary>
         /// Unique list of all Pharmaceutical Forms across all products
@@ -137,7 +137,7 @@ namespace VetMedData.NET.Model
     /// ReferenceProduct with a current, active marketing authorisation
     /// </summary>
     [Serializable]
-    public class CurrentlyAuthorisedProduct : ReferenceProduct
+    public class CurrentlyAuthorisedProduct : RealProduct
     {
         public IEnumerable<string> Distributors { get; set; }
         //public DateTime DateOfIssue { get; set; }
@@ -145,7 +145,6 @@ namespace VetMedData.NET.Model
         public string DistributionCategory { get; set; }
         public string PharmaceuticalForm { get; set; }
         public string TherapeuticGroup { get; set; }
-        public string SPC_Link { get; set; }
         public string UKPAR_Link { get; set; }
         public string PAAR_Link { get; set; }
     }
@@ -154,7 +153,7 @@ namespace VetMedData.NET.Model
     /// ReferenceProduct whose marketing authorisation has been suspended
     /// </summary>
     [Serializable]
-    public class SuspendedProduct : ReferenceProduct
+    public class SuspendedProduct : RealProduct
     {
         public DateTime DateOfSuspension { get; set; }
        // public DateTime DateOfIssue { get; set; }
@@ -162,7 +161,6 @@ namespace VetMedData.NET.Model
         public string DistributionCategory { get; set; }
         public string PharmaceuticalForm { get; set; }
         public string TherapeuticGroup { get; set; }
-        public string SPC_Link { get; set; }
         public string UKPAR_Link { get; set; }
         public string PAAR_Link { get; set; }
     }
@@ -171,11 +169,19 @@ namespace VetMedData.NET.Model
     /// ReferenceProduct whose marketing authorisation has expired
     /// </summary>
     [Serializable]
-    public class ExpiredProduct : ReferenceProduct
+    public class ExpiredProduct : RealProduct
     {
         public DateTime DateofExpiration { get; set; }
-        public string SPC_Link { get; set; }
     }
+
+    ///<inheritdoc />
+    [Serializable]
+    public class RealProduct : ReferenceProduct
+    {
+        public string SPC_Link { get; set; }
+        public IEnumerable<Tuple<string, double, string>> PharmaceuticalComposition { get; set; }
+    }
+
     /// <inheritdoc />
     /// <summary>
     /// Authorised homoepathic product

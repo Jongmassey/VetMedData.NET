@@ -19,7 +19,7 @@ namespace VetMedData.NET.Util
     {
         //pattern for extracting composition section
         private const string CompositionSectionPattern
-            = @"(?<=2\.\s*QUALITATIVE AND QUANTITATIVE COMPOSITION\s*)([\s\S]*)(?=3\.\s*PHARMACEUTICAL FORM\s*)";
+            = @"(?<=2[\.\)]\s*QUALITATIVE AND QUANTITATIVE COMPOSITION\s*)([\s\S]*)(?=3[\.\)]\s*PHARMACEUTICAL FORM\s*)";
 
         ////pattern for active substances section
         //private const string ActiveSubstancesPattern
@@ -27,7 +27,8 @@ namespace VetMedData.NET.Util
 
         //pattern for Active Substances section header
         private const string ActiveSubstanceLookbehind
-            = @"(?<=Active\s*Substance[\(s\)]*[ \t]*)";
+            // = @"(?<=Active\s*Substance[\(s\)]*[ \t]*)";
+            = @"(?<=active\s*(?:substance|ingredient|constituent)s*[\(\)\:\.]*\s+)";
 
         //pattern to get units at end of Active Substances header 
         private const string ActiveSubstanceHeaderUnitCaptureGroup
@@ -35,7 +36,8 @@ namespace VetMedData.NET.Util
 
         //pattern for following Excipients section header
         private const string ActiveSubstancesLookahead
-            = @"(?=Excipients)";
+        //= @"(?=Excipients)";
+        = @"(?=Excipients|$)";
 
         //catch-all pattern (very greedy)
         private const string CatchAllPattern
@@ -44,6 +46,7 @@ namespace VetMedData.NET.Util
         //pattern for excipients section
         private const string ExcipientsPattern
             = @"(?<=Excipients)([\s\S]*)";
+
 
         //pattern for section preceding target species information
         private const string TargetSpeciesLookbehind
@@ -77,10 +80,16 @@ namespace VetMedData.NET.Util
         /// </summary>
         /// <param name="plainText"></param>
         /// <returns><see cref="IEnumerable{T}"/> of <see cref="Tuple"/>s of ingredient, quantity and unit</returns>
-        private static IEnumerable<Tuple<string, double, string>> GetActiveSubstances(string plainText)
+        private static IEnumerable<Tuple<string, double, string>> GetPharmaceuticalCompositionFromText(string plainText)
         {
+            var rm = Regex.Match(plainText, CompositionSectionPattern, Ro);
+            if (!rm.Success)
+            {
+                throw new Exception("Error finding Composition section in document");
+            }
+
             var compositionSection =
-                Regex.Match(plainText, CompositionSectionPattern, Ro)
+                rm
                     .Captures[0].Value;
             if (string.IsNullOrWhiteSpace(compositionSection))
             {
@@ -96,17 +105,81 @@ namespace VetMedData.NET.Util
                 activeSubstancesPattern = ActiveSubstanceLookbehind + ActiveSubstanceHeaderUnitCaptureGroup +
                                           CatchAllPattern;
                 m = Regex.Match(compositionSection, activeSubstancesPattern, Ro);
+                if (!m.Success)
+                {
+                    throw new Exception("Unable to extract active substances from composition section");
+                }
             }
 
-            var unitsinheader = m.Captures.Count > 1;
-            var units = unitsinheader ? m.Captures[0].Value : string.Empty;
-            var activeIngredients = (unitsinheader ? m.Captures[1] :
-                m.Captures[0]).Value.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+            var unitsInHeader = m.Groups.Count > 2;
+            var units = unitsInHeader ? m.Groups[1].Value : string.Empty;
+            var activeIngredients = (unitsInHeader ? m.Groups[2] : m.Captures[0]).Value
+                .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries)
+                .Select(ai => ai.Trim())
+                .Where(ai => !string.IsNullOrEmpty(ai));
 
-            return activeIngredients
-                .Select(activeIngredient => activeIngredient.Split('\t', StringSplitOptions.RemoveEmptyEntries)).Select(
-                    linesplit => new Tuple<string, double, string>(linesplit[0], double.Parse(linesplit[1]),
-                        unitsinheader ? units : linesplit[2]));
+            var allIngredients = activeIngredients
+            .Select(activeIngredient => activeIngredient
+                .Split('\t', StringSplitOptions.RemoveEmptyEntries))
+            .Select(
+                lineSplit =>
+                {
+                    var unit = unitsInHeader ? units : lineSplit[2];
+
+                    var d = double.NaN;
+                    var dParse = lineSplit.Length > 1 &&
+                        double.TryParse(lineSplit[1], out d);
+                    if (!dParse && lineSplit.Length > 1 && lineSplit[1].Contains(" "))
+                    {
+                        dParse = double.TryParse(lineSplit[1].Split(' ')[0], out d);
+                        unit = dParse ? lineSplit[1].Split(' ')[1] : unit;
+                    }
+
+                    return new Tuple<string, double, string>(lineSplit[0].Trim(), dParse ? d : double.NaN, unit);
+                    //unitsInHeader ? units : lineSplit[2]);
+                });
+            var toTake =
+                allIngredients.Any(a => a.Item1.ToLowerInvariant().Contains("excipient")) ?
+                allIngredients.ToList().FindIndex(f =>
+                f.Item1.ToLowerInvariant().Contains("excipient")) :
+                allIngredients.Count();
+            return allIngredients.Take(toTake);
+        }
+
+        public static IEnumerable<Tuple<string, double, string>> GetPharmaceuticalComposition(WordprocessingDocument d)
+        {
+            var sb = new StringBuilder();
+            foreach (var e in d.MainDocumentPart.Document.Body)
+            {
+                sb.Append(GetPlainText(e));
+                sb.Append(Environment.NewLine);
+            }
+
+            var docText = sb.ToString();
+            return GetPharmaceuticalCompositionFromText(docText).ToList();
+        }
+        public static IEnumerable<Tuple<string, double, string>> GetPharmaceuticalComposition(Stream s)
+        {
+            s.Seek(0, SeekOrigin.Begin);
+            IEnumerable<Tuple<string, double, string>> e;
+            try
+            {
+                e = GetPharmaceuticalComposition(WordprocessingDocument.Open(s, false));
+                return e;
+            }
+            catch (Exception)
+            {
+                e = new List<Tuple<string, double, string>>();
+                return e;
+            }
+
+        }
+
+        public static IEnumerable<Tuple<string, double, string>> GetPharmaceuticalComposition(string pathToSpc)
+        {
+
+            return GetPharmaceuticalComposition(WordprocessingDocument.Open(pathToSpc, false));
+
         }
 
         /// <summary>
