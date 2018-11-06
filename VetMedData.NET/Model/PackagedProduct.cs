@@ -6,7 +6,7 @@ namespace VetMedData.NET.Model
     /// <summary>
     /// Record of administration of portion of a packaged product
     /// </summary>
-    public class AdministeredProduct : PackagedProduct
+    public class AdministeredProduct : ActionedProduct
     {
         public string ReasonForAdministration { get; set; }
         public double ProportionOfPackageAdministered { get; set; }
@@ -25,7 +25,7 @@ namespace VetMedData.NET.Model
     {
         public DateTime ActionDate { get; set; }
         public string ActionedBy { get; set; }
-        public string[] TargetSpecies { get; set; }
+        public TargetSpecies[] TargetSpecies { get; set; }
     }
 
 
