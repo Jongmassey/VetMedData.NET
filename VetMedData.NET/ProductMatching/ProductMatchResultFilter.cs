@@ -53,7 +53,7 @@ namespace VetMedData.NET.ProductMatching
             return results.Where(r =>
                 r.InputProduct.TargetSpecies != null &&
                 r.ReferenceProduct.TargetSpecies != null &&
-                r.InputProduct.TargetSpecies.Intersect(r.ReferenceProduct.TargetSpecies).Any()
+                r.InputProduct.TargetSpecies.Select(s=>s.ToString()).Intersect(r.ReferenceProduct.TargetSpecies).Any()
             );
         }
     }

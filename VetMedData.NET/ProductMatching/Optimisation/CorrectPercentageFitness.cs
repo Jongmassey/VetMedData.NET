@@ -26,7 +26,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             var toMatch = new ConcurrentDictionary<string, string[]>(TruthFactory.GetTruth());
             Parallel.ForEach(toMatch, tm =>
             {
-                var ap = new ActionedProduct { Product = new Product { Name = tm.Key }, TargetSpecies = new[] { "cattle" } };
+                var ap = new ActionedProduct { Product = new Product { Name = tm.Key }, TargetSpecies = TargetSpecies.Find("cattle").ToArray() };
                 ReferenceProduct[] rp;
                 lock (pid)
                 {
