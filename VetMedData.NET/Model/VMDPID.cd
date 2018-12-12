@@ -1,84 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="VetMedData.NET.Model.VMDPID">
-    <Position X="8.75" Y="1.25" Width="4.5" />
+    <Position X="10.75" Y="1.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>gAAAABAEAAAACBAAACAAAAAAwAMACIAAAAAAAAAAAAE=</HashCode>
       <FileName>Model\VMDPID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.ReferenceProduct">
-    <Position X="14.25" Y="3" Width="3.75" />
+    <Position X="13.5" Y="3" Width="2" />
+    <Members>
+      <Method Name="GetProductActiveRange" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AAAAgBAEAAAAAAAEACCAAIAABAAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>Model\VMDPID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.CurrentlyAuthorisedProduct">
-    <Position X="9.75" Y="6.75" Width="2.5" />
+    <Position X="10.75" Y="6.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAiAAAAAAIAABAABAAAAQAAAAIA=</HashCode>
       <FileName>Model\VMDPID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.SuspendedProduct">
-    <Position X="12.5" Y="6.75" Width="2.5" />
+    <Position X="13.25" Y="6.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAACAAAAAAIAAFAABAAAAQAAAAIA=</HashCode>
       <FileName>Model\VMDPID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.ExpiredProduct">
-    <Position X="15.25" Y="6.75" Width="2.25" />
+    <Position X="15.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQ=</HashCode>
       <FileName>Model\VMDPID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.HomoeopathicProduct">
-    <Position X="17.75" Y="6.75" Width="2.25" />
+    <Position X="17" Y="6.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAABAABAAAAQAAAAAA=</HashCode>
       <FileName>Model\VMDPID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.TargetSpecies">
-    <Position X="19" Y="1.25" Width="3" />
+    <Position X="16" Y="3.75" Width="3" />
+    <Members>
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="Find" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAgAgAAAAAAAAAAIAAAAAIAAAAAAAAI=</HashCode>
       <FileName>Model\TargetSpecies.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.Product">
-    <Position X="15.25" Y="1.25" Width="1.5" />
+    <Position X="13.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.AdministeredProduct">
-    <Position X="21" Y="6.75" Width="3" />
+    <Position X="19.25" Y="5.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Model\PackagedProduct.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.SoldProduct">
-    <Position X="24.5" Y="6.75" Width="2.25" />
+    <Position X="19.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\PackagedProduct.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.ActionedProduct">
-    <Position X="22.5" Y="4.5" Width="3" />
+    <Position X="18" Y="1.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAAAAAQAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Model\PackagedProduct.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VetMedData.NET.Model.PackagedProduct">
-    <Position X="23" Y="2.5" Width="2" />
+    <Position X="16" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\PackagedProduct.cs</FileName>
