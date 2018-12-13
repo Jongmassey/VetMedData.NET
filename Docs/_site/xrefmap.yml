@@ -1139,6 +1139,19 @@ references:
   isSpec: "True"
   fullName: VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect.HierarchicalFilterWithRandomFinalSelect
   nameWithType: HierarchicalFilterWithRandomFinalSelect.HierarchicalFilterWithRandomFinalSelect
+- uid: VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect._cfg
+  name: _cfg
+  href: Docs/api/VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect.html#VetMedData_NET_ProductMatching_HierarchicalFilterWithRandomFinalSelect__cfg
+  commentId: P:VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect._cfg
+  fullName: VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect._cfg
+  nameWithType: HierarchicalFilterWithRandomFinalSelect._cfg
+- uid: VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect._cfg*
+  name: _cfg
+  href: Docs/api/VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect.html#VetMedData_NET_ProductMatching_HierarchicalFilterWithRandomFinalSelect__cfg_
+  commentId: Overload:VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect._cfg
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect._cfg
+  nameWithType: HierarchicalFilterWithRandomFinalSelect._cfg
 - uid: VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect.DisambiguateMatchResults(IEnumerable{VetMedData.NET.ProductMatching.ProductSimilarityResult})
   name: DisambiguateMatchResults(IEnumerable<ProductSimilarityResult>)
   href: Docs/api/VetMedData.NET.ProductMatching.HierarchicalFilterWithRandomFinalSelect.html#VetMedData_NET_ProductMatching_HierarchicalFilterWithRandomFinalSelect_DisambiguateMatchResults_IEnumerable_VetMedData_NET_ProductMatching_ProductSimilarityResult__
@@ -1305,6 +1318,89 @@ references:
   isSpec: "True"
   fullName: VetMedData.NET.ProductMatching.NameCleaningConfig.TermsToRemove
   nameWithType: NameCleaningConfig.TermsToRemove
+- uid: VetMedData.NET.ProductMatching.Optimisation
+  name: VetMedData.NET.ProductMatching.Optimisation
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.html
+  commentId: N:VetMedData.NET.ProductMatching.Optimisation
+  fullName: VetMedData.NET.ProductMatching.Optimisation
+  nameWithType: VetMedData.NET.ProductMatching.Optimisation
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner
+  name: GaRunner
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html
+  commentId: T:VetMedData.NET.ProductMatching.Optimisation.GaRunner
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner
+  nameWithType: GaRunner
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner.GetGeneticAlgorithm
+  name: GetGeneticAlgorithm()
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html#VetMedData_NET_ProductMatching_Optimisation_GaRunner_GetGeneticAlgorithm
+  commentId: M:VetMedData.NET.ProductMatching.Optimisation.GaRunner.GetGeneticAlgorithm
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner.GetGeneticAlgorithm()
+  nameWithType: GaRunner.GetGeneticAlgorithm()
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner.GetGeneticAlgorithm*
+  name: GetGeneticAlgorithm
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html#VetMedData_NET_ProductMatching_Optimisation_GaRunner_GetGeneticAlgorithm_
+  commentId: Overload:VetMedData.NET.ProductMatching.Optimisation.GaRunner.GetGeneticAlgorithm
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner.GetGeneticAlgorithm
+  nameWithType: GaRunner.GetGeneticAlgorithm
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner.Run
+  name: Run()
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html#VetMedData_NET_ProductMatching_Optimisation_GaRunner_Run
+  commentId: M:VetMedData.NET.ProductMatching.Optimisation.GaRunner.Run
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner.Run()
+  nameWithType: GaRunner.Run()
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner.Run*
+  name: Run
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html#VetMedData_NET_ProductMatching_Optimisation_GaRunner_Run_
+  commentId: Overload:VetMedData.NET.ProductMatching.Optimisation.GaRunner.Run
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner.Run
+  nameWithType: GaRunner.Run
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner.RunWithGenerationalResults
+  name: RunWithGenerationalResults()
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html#VetMedData_NET_ProductMatching_Optimisation_GaRunner_RunWithGenerationalResults
+  commentId: M:VetMedData.NET.ProductMatching.Optimisation.GaRunner.RunWithGenerationalResults
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner.RunWithGenerationalResults()
+  nameWithType: GaRunner.RunWithGenerationalResults()
+- uid: VetMedData.NET.ProductMatching.Optimisation.GaRunner.RunWithGenerationalResults*
+  name: RunWithGenerationalResults
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.GaRunner.html#VetMedData_NET_ProductMatching_Optimisation_GaRunner_RunWithGenerationalResults_
+  commentId: Overload:VetMedData.NET.ProductMatching.Optimisation.GaRunner.RunWithGenerationalResults
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.Optimisation.GaRunner.RunWithGenerationalResults
+  nameWithType: GaRunner.RunWithGenerationalResults
+- uid: VetMedData.NET.ProductMatching.Optimisation.TruthFactory
+  name: TruthFactory
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.TruthFactory.html
+  commentId: T:VetMedData.NET.ProductMatching.Optimisation.TruthFactory
+  fullName: VetMedData.NET.ProductMatching.Optimisation.TruthFactory
+  nameWithType: TruthFactory
+- uid: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.GetTruth
+  name: GetTruth()
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.TruthFactory.html#VetMedData_NET_ProductMatching_Optimisation_TruthFactory_GetTruth
+  commentId: M:VetMedData.NET.ProductMatching.Optimisation.TruthFactory.GetTruth
+  fullName: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.GetTruth()
+  nameWithType: TruthFactory.GetTruth()
+- uid: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.GetTruth*
+  name: GetTruth
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.TruthFactory.html#VetMedData_NET_ProductMatching_Optimisation_TruthFactory_GetTruth_
+  commentId: Overload:VetMedData.NET.ProductMatching.Optimisation.TruthFactory.GetTruth
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.GetTruth
+  nameWithType: TruthFactory.GetTruth
+- uid: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.SetPath(System.String)
+  name: SetPath(String)
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.TruthFactory.html#VetMedData_NET_ProductMatching_Optimisation_TruthFactory_SetPath_System_String_
+  commentId: M:VetMedData.NET.ProductMatching.Optimisation.TruthFactory.SetPath(System.String)
+  fullName: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.SetPath(System.String)
+  nameWithType: TruthFactory.SetPath(String)
+- uid: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.SetPath*
+  name: SetPath
+  href: Docs/api/VetMedData.NET.ProductMatching.Optimisation.TruthFactory.html#VetMedData_NET_ProductMatching_Optimisation_TruthFactory_SetPath_
+  commentId: Overload:VetMedData.NET.ProductMatching.Optimisation.TruthFactory.SetPath
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.Optimisation.TruthFactory.SetPath
+  nameWithType: TruthFactory.SetPath
 - uid: VetMedData.NET.ProductMatching.OrderedFilterBasedDisambiguatorConfig
   name: OrderedFilterBasedDisambiguatorConfig
   href: Docs/api/VetMedData.NET.ProductMatching.OrderedFilterBasedDisambiguatorConfig.html
@@ -1500,6 +1596,22 @@ references:
   isSpec: "True"
   fullName: VetMedData.NET.ProductMatching.ProductMatchRunner.ProductMatchRunner
   nameWithType: ProductMatchRunner.ProductMatchRunner
+- uid: VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates(IEnumerable{VetMedData.NET.ProductMatching.ProductSimilarityResult})
+  name: GetDisambiguationCandidates(IEnumerable<ProductSimilarityResult>)
+  href: Docs/api/VetMedData.NET.ProductMatching.ProductMatchRunner.html#VetMedData_NET_ProductMatching_ProductMatchRunner_GetDisambiguationCandidates_IEnumerable_VetMedData_NET_ProductMatching_ProductSimilarityResult__
+  commentId: M:VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates(IEnumerable{VetMedData.NET.ProductMatching.ProductSimilarityResult})
+  name.vb: GetDisambiguationCandidates(IEnumerable(Of ProductSimilarityResult))
+  fullName: VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates(IEnumerable<VetMedData.NET.ProductMatching.ProductSimilarityResult>)
+  fullName.vb: VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates(IEnumerable(Of VetMedData.NET.ProductMatching.ProductSimilarityResult))
+  nameWithType: ProductMatchRunner.GetDisambiguationCandidates(IEnumerable<ProductSimilarityResult>)
+  nameWithType.vb: ProductMatchRunner.GetDisambiguationCandidates(IEnumerable(Of ProductSimilarityResult))
+- uid: VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates*
+  name: GetDisambiguationCandidates
+  href: Docs/api/VetMedData.NET.ProductMatching.ProductMatchRunner.html#VetMedData_NET_ProductMatching_ProductMatchRunner_GetDisambiguationCandidates_
+  commentId: Overload:VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.ProductMatchRunner.GetDisambiguationCandidates
+  nameWithType: ProductMatchRunner.GetDisambiguationCandidates
 - uid: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatch(VetMedData.NET.Model.ActionedProduct,IEnumerable{VetMedData.NET.Model.ReferenceProduct})
   name: GetMatch(ActionedProduct, IEnumerable<ReferenceProduct>)
   href: Docs/api/VetMedData.NET.ProductMatching.ProductMatchRunner.html#VetMedData_NET_ProductMatching_ProductMatchRunner_GetMatch_VetMedData_NET_Model_ActionedProduct_IEnumerable_VetMedData_NET_Model_ReferenceProduct__
@@ -1516,6 +1628,22 @@ references:
   isSpec: "True"
   fullName: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatch
   nameWithType: ProductMatchRunner.GetMatch
+- uid: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults(VetMedData.NET.Model.ActionedProduct,IEnumerable{VetMedData.NET.Model.ReferenceProduct})
+  name: GetMatchResults(ActionedProduct, IEnumerable<ReferenceProduct>)
+  href: Docs/api/VetMedData.NET.ProductMatching.ProductMatchRunner.html#VetMedData_NET_ProductMatching_ProductMatchRunner_GetMatchResults_VetMedData_NET_Model_ActionedProduct_IEnumerable_VetMedData_NET_Model_ReferenceProduct__
+  commentId: M:VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults(VetMedData.NET.Model.ActionedProduct,IEnumerable{VetMedData.NET.Model.ReferenceProduct})
+  name.vb: GetMatchResults(ActionedProduct, IEnumerable(Of ReferenceProduct))
+  fullName: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults(VetMedData.NET.Model.ActionedProduct, IEnumerable<VetMedData.NET.Model.ReferenceProduct>)
+  fullName.vb: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults(VetMedData.NET.Model.ActionedProduct, IEnumerable(Of VetMedData.NET.Model.ReferenceProduct))
+  nameWithType: ProductMatchRunner.GetMatchResults(ActionedProduct, IEnumerable<ReferenceProduct>)
+  nameWithType.vb: ProductMatchRunner.GetMatchResults(ActionedProduct, IEnumerable(Of ReferenceProduct))
+- uid: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults*
+  name: GetMatchResults
+  href: Docs/api/VetMedData.NET.ProductMatching.ProductMatchRunner.html#VetMedData_NET_ProductMatching_ProductMatchRunner_GetMatchResults_
+  commentId: Overload:VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.ProductMatchRunner.GetMatchResults
+  nameWithType: ProductMatchRunner.GetMatchResults
 - uid: VetMedData.NET.ProductMatching.ProductNameMetric
   name: ProductNameMetric
   href: Docs/api/VetMedData.NET.ProductMatching.ProductNameMetric.html
@@ -1764,6 +1892,28 @@ references:
   isSpec: "True"
   fullName: VetMedData.NET.ProductMatching.RandomSelectFilter.FilterResults
   nameWithType: RandomSelectFilter.FilterResults
+- uid: VetMedData.NET.ProductMatching.ShortestResultFilter
+  name: ShortestResultFilter
+  href: Docs/api/VetMedData.NET.ProductMatching.ShortestResultFilter.html
+  commentId: T:VetMedData.NET.ProductMatching.ShortestResultFilter
+  fullName: VetMedData.NET.ProductMatching.ShortestResultFilter
+  nameWithType: ShortestResultFilter
+- uid: VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults(IEnumerable{VetMedData.NET.ProductMatching.ProductSimilarityResult})
+  name: FilterResults(IEnumerable<ProductSimilarityResult>)
+  href: Docs/api/VetMedData.NET.ProductMatching.ShortestResultFilter.html#VetMedData_NET_ProductMatching_ShortestResultFilter_FilterResults_IEnumerable_VetMedData_NET_ProductMatching_ProductSimilarityResult__
+  commentId: M:VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults(IEnumerable{VetMedData.NET.ProductMatching.ProductSimilarityResult})
+  name.vb: FilterResults(IEnumerable(Of ProductSimilarityResult))
+  fullName: VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults(IEnumerable<VetMedData.NET.ProductMatching.ProductSimilarityResult>)
+  fullName.vb: VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults(IEnumerable(Of VetMedData.NET.ProductMatching.ProductSimilarityResult))
+  nameWithType: ShortestResultFilter.FilterResults(IEnumerable<ProductSimilarityResult>)
+  nameWithType.vb: ShortestResultFilter.FilterResults(IEnumerable(Of ProductSimilarityResult))
+- uid: VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults*
+  name: FilterResults
+  href: Docs/api/VetMedData.NET.ProductMatching.ShortestResultFilter.html#VetMedData_NET_ProductMatching_ShortestResultFilter_FilterResults_
+  commentId: Overload:VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults
+  isSpec: "True"
+  fullName: VetMedData.NET.ProductMatching.ShortestResultFilter.FilterResults
+  nameWithType: ShortestResultFilter.FilterResults
 - uid: VetMedData.NET.ProductMatching.ThresholdSimilarityResultFilter
   name: ThresholdSimilarityResultFilter
   href: Docs/api/VetMedData.NET.ProductMatching.ThresholdSimilarityResultFilter.html
