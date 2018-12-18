@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimMetrics.Net.Metric;
 using VetMedData.NET.Model;
 using VetMedData.NET.ProductMatching;
 using VetMedData.NET.ProductMatching.Optimisation;
@@ -17,9 +18,46 @@ namespace VetMedData.CLI
 {
     internal class Program
     {
+        //TODO: yml parsing
+        //  What's needed in config?
+        //  What's userful output for GA Optimisation - persistent failures?
+
+        //TODO: GA tweaking
+        // pop size
+        // xover 
+        // mutation?
         private static void Main(string[] args)
         {
-            if (args.Length > 0 && File.Exists(args[0]))
+            if (args.Length == 2 && args[0].Equals("--config"))
+            {
+                try
+                {
+                    var conf = ConfigParser.Parse(args[1]);
+
+                    switch (conf.Item1)
+                    {
+                        case "match":
+                            RunMatch(conf.Item2);
+                            break;
+                        case "explainmatch":
+                            ExplainMatch(conf.Item2);
+                            break;
+                        case "optimise":
+                            Optimise(conf.Item2);
+                            break;
+                        default:
+                            throw new Exception("unknown method");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return;
+                }
+                
+            }
+
+            if (args.Length ==1 && File.Exists(args[0]))
             {
                 var sb = new StringBuilder("\"Input Name\",\"Matched Name\",\"VM Number\",\"Similarity Score\"" + Environment.NewLine);
                 var pid = VMDPIDFactory.GetVmdPid(PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
@@ -201,6 +239,112 @@ namespace VetMedData.CLI
                 Console.WriteLine("Requires path to file to process as first argument.");
                 Console.ReadLine();
             }
+        }
+
+        private static void RunMatch(Dictionary<string,string> configDictionary)
+        {
+            try
+            {
+                
+            
+
+            var sb = new StringBuilder("\"Input Name\",\"Matched Name\",\"VM Number\",\"Similarity Score\"" + Environment.NewLine);
+            var pid = VMDPIDFactory.GetVmdPid(PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
+                                              PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
+                                              PidFactoryOptions.PersistentPid).Result;
+                var cfg = new DefaultProductMatchConfig
+                {
+                    NameMetricConfig =
+                    {
+                        ABCompoundPositionalWeightRatio = double.Parse(configDictionary["abWeightRatio"]),
+                        APositionalWeightingCoefficientPower = double.Parse(configDictionary["aWeightingParameter"]),
+                        BPositionalWeightingCoefficientPower = double.Parse(configDictionary["bWeightingParameter"]),
+                        InnerMetric = new Levenstein()
+                    }
+                };
+                
+                var pmr = new ProductMatchRunner(cfg);
+            
+
+            var inputStrings = new BlockingCollection<string>();
+
+                using (var fs = File.OpenText(configDictionary["input"]))
+                {
+                    while (!fs.EndOfStream)
+                    {
+                        inputStrings.Add(fs.ReadLine()?.ToLowerInvariant().Trim());
+                    }
+                }
+            
+            Parallel.ForEach(inputStrings.Where(s => !string.IsNullOrEmpty(s)), inputString =>
+            {
+                var ap = new SoldProduct
+                {
+                    TargetSpecies = configDictionary["targetSpecies"].Split(',') ,
+                    Product = new Product { Name = inputString },
+                    ActionDate = DateTime.Now
+                };
+
+                var res = pmr.GetMatch(ap, pid.RealProducts);
+                lock (sb)
+                {
+                    sb.AppendJoin(',',
+                        $"\"{res.InputProduct.Product.Name}\"",
+                        $"\"{res.ReferenceProduct.Name}\"",
+                        $"\"{res.ReferenceProduct.VMNo}\"",
+                        res.ProductNameSimilarity.ToString(CultureInfo.InvariantCulture),
+                        Environment.NewLine);
+                }
+            });
+            Console.WriteLine(sb.ToString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        private static void ExplainMatch(Dictionary<string, string> configDictionary)
+        {
+        }
+
+        private static void Optimise(Dictionary<string, string> configDictionary)
+        {
+            TruthFactory.SetPath(configDictionary["input"]);
+            var pid = VMDPIDFactory.GetVmdPid(
+                PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
+                PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
+                PidFactoryOptions.PersistentPid
+            ).Result;
+
+            var ga = GaRunner.GetGeneticAlgorithm();
+            //todo: GA configuration - do it in GaRunner class!
+            Console.WriteLine("Generation, ABWeightRatio, AWeight, BWeight, Threshold, SuccessRate");
+
+            var latestFitness = 0.0;
+
+            ga.GenerationRan += (sender, e) =>
+            {
+                var bestChromosome = ga.BestChromosome as FloatingPointChromosome;
+                var bestFitness = bestChromosome.Fitness.Value;
+
+                if (bestFitness != latestFitness)
+                {
+                    latestFitness = bestFitness;
+                    var phenotype = bestChromosome.ToFloatingPoints();
+
+                    Console.WriteLine(
+                        "{0,2},{1},{2},{3},{4},{5}",
+                        ga.GenerationsNumber,
+                        phenotype[0],
+                        phenotype[1],
+                        phenotype[2],
+                        phenotype[3],
+                        bestFitness
+                    );
+                }
+            };
+            ga.Start();
         }
     }
 }

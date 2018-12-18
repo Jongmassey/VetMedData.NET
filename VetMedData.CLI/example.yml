@@ -1,1 +1,33 @@
-﻿
+﻿input:  "infile.csv"
+#if no output specified, will send to stdout
+output: "outfile.csv"
+
+#methods: match/explainmatch/optimise
+
+method: "match"
+matchConfig:
+    aWeightingParameter: 0.05
+    bWeightingParameter: 6.04
+    abWeightRatio: 0.165
+    threshold:0.683
+    targetSpecies:"cattle,sheep"
+
+#method: "optimise"
+#optimiseConfig:
+#    populationMinSize: 50
+#    populationMaxSize: 100
+#
+#    #see:https://github.com/giacomelli/GeneticSharp/tree/master/src/GeneticSharp.Domain/Crossovers
+#    crossover: "UniformCrossOver"
+#    crossoverProbability: 0.75
+#    mixProbability: 0.5
+#
+#    #see:https://github.com/giacomelli/GeneticSharp/tree/master/src/GeneticSharp.Domain/Mutations
+#    mutation: "FlipBitMutation"
+#    mutationProbability: 0.2
+#    
+#    #see https://github.com/giacomelli/GeneticSharp/tree/master/src/GeneticSharp.Domain/Terminations
+#    termination: "FitnessStagnationTermination"
+#    expectedStagnantGenerationsNumber: 10
+
+ 

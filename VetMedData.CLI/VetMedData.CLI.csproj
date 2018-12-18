@@ -13,4 +13,10 @@
     <ProjectReference Include="..\VetMedData.NET\VetMedData.NET.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="example.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
