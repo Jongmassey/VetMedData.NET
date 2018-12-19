@@ -317,8 +317,7 @@ namespace VetMedData.CLI
                 PidFactoryOptions.PersistentPid
             ).Result;
 
-            var ga = GaRunner.GetGeneticAlgorithm();
-            //todo: GA configuration - do it in GaRunner class!
+            var ga = GaRunner.GetGeneticAlgorithm(configDictionary);
             Console.WriteLine("Generation, ABWeightRatio, AWeight, BWeight, Threshold, SuccessRate");
 
             var latestFitness = 0.0;

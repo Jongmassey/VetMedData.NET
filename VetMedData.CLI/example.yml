@@ -29,5 +29,7 @@ matchConfig:
 #    #see https://github.com/giacomelli/GeneticSharp/tree/master/src/GeneticSharp.Domain/Terminations
 #    termination: "FitnessStagnationTermination"
 #    expectedStagnantGenerationsNumber: 10
-
+#
+#    #see https://github.com/giacomelli/GeneticSharp/tree/master/src/GeneticSharp.Domain/Selections
+#    selction: "EliteSelection"
  

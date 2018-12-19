@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using GeneticSharp.Domain;
+﻿using GeneticSharp.Domain;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Crossovers;
 using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Domain.Populations;
 using GeneticSharp.Domain.Selections;
 using GeneticSharp.Domain.Terminations;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace VetMedData.NET.ProductMatching.Optimisation
@@ -15,13 +15,13 @@ namespace VetMedData.NET.ProductMatching.Optimisation
     {
         public static double[] Run()
         {
-            var ga = GetGeneticAlgorithm();  
+            var ga = GetGeneticAlgorithm();
             ga.Start();
 
             return ((FloatingPointChromosome)ga.BestChromosome).ToFloatingPoints()
                 .Union(new[] { ga.BestChromosome.Fitness.Value }).ToArray();
         }
-    
+
 
         public static ObservableCollection<double[]> RunWithGenerationalResults()
         {
@@ -38,7 +38,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                 {
                     latestFitness = bestFitness;
                     var phenotype = bestChromosome.ToFloatingPoints();
-                    obc.Add(new []
+                    obc.Add(new[]
                     {
                             ga.GenerationsNumber,
                             phenotype[0],
@@ -50,6 +50,70 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                 }
             };
             return obc;
+        }
+
+        public static GeneticAlgorithm GetGeneticAlgorithm(IDictionary<string, string> configDictionary)
+        {
+            var chromosome = new ConfigurationChromosome();
+
+            ICrossover crossover;
+            switch (configDictionary["crossover"])
+            {
+                case "uniformCrossover":
+                    var mixProbability = float.Parse(configDictionary["mixProbability"]);
+                    crossover = new UniformCrossover(mixProbability);
+                    break;
+                default:
+                    crossover = new UniformCrossover(0.5f);
+                    break;
+            }
+            IPopulation population = new Population(int.Parse(configDictionary["populationMinSize"]),
+                int.Parse(configDictionary["populationMaxSize"]), chromosome);
+
+            var fitness = new CorrectPercentageFitness();
+
+            ISelection selection;
+            switch (configDictionary["selection"])
+            {
+                case "EliteSelection":
+                    selection = new EliteSelection();
+                    break;
+                default:
+                    selection = new EliteSelection();
+                    break;
+            }
+
+            IMutation mutation;
+            switch (configDictionary["mutation"])
+            {
+                case "FlipBitMutation":
+                    mutation = new FlipBitMutation();
+                    break;
+                default:
+                    mutation = new FlipBitMutation();
+                    break;
+            }
+
+            ITermination termination;
+            switch (configDictionary["termination"])
+            {
+                case "FitnessStagnationTermination":
+                    var expectedStagnantGenerationsNumber =
+                        int.Parse(configDictionary["expectedStagnantGenerationsNumber"]);
+                    termination = new FitnessStagnationTermination(expectedStagnantGenerationsNumber);
+                    break;
+                default:
+                    termination = new FitnessStagnationTermination(100);
+                    break;
+            }
+            var ga = new GeneticAlgorithm(
+                    population,
+                    fitness,
+                    selection,
+                    crossover,
+                    mutation)
+            { Termination = termination };
+            return ga;
         }
 
         public static GeneticAlgorithm GetGeneticAlgorithm()
@@ -68,7 +132,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                     selection,
                     crossover,
                     mutation)
-                { Termination = termination };
+            { Termination = termination };
             return ga;
         }
     }
