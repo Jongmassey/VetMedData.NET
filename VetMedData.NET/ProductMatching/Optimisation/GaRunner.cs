@@ -8,6 +8,10 @@ using GeneticSharp.Domain.Terminations;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
+using System;
+//using Microsoft.Extensions.DependencyModel;
+
 
 namespace VetMedData.NET.ProductMatching.Optimisation
 {
@@ -52,6 +56,46 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             return obc;
         }
 
+//TODO:ctor params
+         private static ICrossover GetCrossoverByNameFromConfig(IDictionary<string, string> configDictionary)
+         {
+             var xovers = Assembly.Load("GeneticSharp.Domain.Crossovers");
+             ConstructorInfo[] ctors;
+             try {
+             ctors= xovers.GetExportedTypes().Single(t=>t.Name.Equals(configDictionary["crossover"])).GetType().GetConstructors();
+             }
+             catch (Exception e){
+                 throw new Exception($"Invalid crossover {configDictionary["crossover"]}");
+             }
+             
+            ConstructorInfo defaultctor = null;
+            if(ctors.Any(c=>!c.GetParameters().Any())){
+                defaultctor = ctors.Single(c=>!c.GetParameters().Any());
+            }           
+
+            foreach(var ctor in ctors.Where(c=>c.GetParameters().Any()))
+            {
+                var paramnames = ctor.GetParameters().Select(p=>p.Name);
+                if(paramnames.Except(configDictionary.Keys).Count()==0)
+                {
+                    var parameters = new List<object>();
+                    foreach (var param in ctor.GetParameters())
+                    {
+                        parameters.Add(configDictionary[param.Name]);
+                    }
+
+                    return  (ICrossover)  ctor.Invoke(new object[]{});
+                }
+                
+            }
+            
+            if(defaultctor!=null)
+            {
+                return (ICrossover) defaultctor.Invoke(new object[]{});
+            }
+            throw new Exception($"Inadequate constructor parameters and no default ctor for {configDictionary["crossover"]}");
+         }
+       
         public static GeneticAlgorithm GetGeneticAlgorithm(IDictionary<string, string> configDictionary)
         {
             var chromosome = new ConfigurationChromosome();
