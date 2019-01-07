@@ -49,9 +49,13 @@ namespace VetMedData.NET.ProductMatching.Optimisation
 
         private static object GetInstanceFromConfig(IDictionary<string, string> configDictionary, string objectType, string parentAssemblyName = "GeneticSharp.Domain")
         {
+            //Load "Parent" Geneticsharp assembly
             var asm = typeof(IGeneticAlgorithm).Assembly;
-            //var asm = Assembly.Load($"{parentAssemblyName}.{objectType}s");
+            
+            //Get members of sub-namespace of interest
             var classes = asm.GetExportedTypes().Where(t => t.Namespace.Equals($"{parentAssemblyName}.{objectType}s"));
+            
+            //get the configured class's constructors
             ConstructorInfo[] ctors;
             try
             {
@@ -72,8 +76,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                 throw new Exception($"Type config for {objectType} not found");
             }
 
-            ConstructorInfo defaultctor = ctors.DefaultIfEmpty(null).SingleOrDefault(c => !c.GetParameters().Any());
-
+            //try to match each constructor by its parameters to configured parameters
             foreach (var ctor in ctors.Where(c => c.GetParameters().Any()))
             {
                 var ctorParams = ctor.GetParameters();
@@ -86,8 +89,9 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                         {
                             dynamic pv;
                             Type t = param.ParameterType;
-                            var parseMethod = t.GetMethod("Parse", new Type[] { typeof(String) });
 
+                            //if ctor parameter type has parse from string method, use it.
+                            var parseMethod = t.GetMethod("Parse", new Type[] { typeof(String) });
                             if (parseMethod != null)
                             {
                                 pv = parseMethod.Invoke(null, new object[] { configDictionary[param.Name] });
@@ -107,11 +111,14 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                     return ctor.Invoke(parameters.ToArray());
                 }
             }
-
+            
+            //try default constructor
+            ConstructorInfo defaultctor = ctors.DefaultIfEmpty(null).SingleOrDefault(c => !c.GetParameters().Any());
             if (defaultctor != null)
             {
                 return defaultctor.Invoke(new object[] { });
             }
+
             throw new Exception($"Inadequate constructor parameters and no default ctor for {configDictionary[objectType]}");
         }
     }
