@@ -9,6 +9,9 @@ using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Domain.Populations;
 using GeneticSharp.Domain.Selections;
 using GeneticSharp.Domain.Terminations;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("VetMedData.Tests")]
 namespace VetMedData.NET.ProductMatching.Optimisation
 {
 
@@ -24,25 +27,31 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             return (IChromosome)GetInstanceFromConfig(configDictionary, "Chromosome");
         }
 
-        internal static IMutation GetMutationByNameFromConfig(IDictionary<string, string> configDictionary){
-            return (IMutation)GetInstanceFromConfig(configDictionary,"Mutation");
+        internal static IMutation GetMutationByNameFromConfig(IDictionary<string, string> configDictionary)
+        {
+            return (IMutation)GetInstanceFromConfig(configDictionary, "Mutation");
         }
 
-        internal static IPopulation GetPopulationByNameFromConfig(IDictionary<string, string> configDictionary){
-            return (IPopulation)GetInstanceFromConfig(configDictionary,"Population");
+        internal static IPopulation GetPopulationByNameFromConfig(IDictionary<string, string> configDictionary)
+        {
+            return (IPopulation)GetInstanceFromConfig(configDictionary, "Population");
         }
 
-        internal static ISelection GetSelectionByNameFromConfig(IDictionary<string, string> configDictionary){
-            return (ISelection)GetInstanceFromConfig(configDictionary,"Selection");
+        internal static ISelection GetSelectionByNameFromConfig(IDictionary<string, string> configDictionary)
+        {
+            return (ISelection)GetInstanceFromConfig(configDictionary, "Selection");
         }
 
-        internal static ITermination GetTerminationByNameFromConfig(IDictionary<string, string> configDictionary){
-            return (ITermination)GetInstanceFromConfig(configDictionary,"Termination");
+        internal static ITermination GetTerminationByNameFromConfig(IDictionary<string, string> configDictionary)
+        {
+            return (ITermination)GetInstanceFromConfig(configDictionary, "Termination");
         }
 
         private static object GetInstanceFromConfig(IDictionary<string, string> configDictionary, string objectType, string parentAssemblyName = "GeneticSharp.Domain")
         {
-            var asm = Assembly.Load($"{parentAssemblyName}.{objectType}s");
+            var asm = typeof(IGeneticAlgorithm).Assembly;
+            //var asm = Assembly.Load($"{parentAssemblyName}.{objectType}s");
+            var classes = asm.GetExportedTypes().Where(t => t.Namespace.Equals($"{parentAssemblyName}.{objectType}s"));
             ConstructorInfo[] ctors;
             try
             {
@@ -50,7 +59,8 @@ namespace VetMedData.NET.ProductMatching.Optimisation
 
                 try
                 {
-                    ctors = asm.GetExportedTypes().Single(t => t.Name.Equals(objectTypeName)).GetType().GetConstructors();
+                    var matchedClass = classes.Single(t => t.Name.Equals(objectTypeName));
+                    ctors = matchedClass.GetConstructors();
                 }
                 catch (Exception)
                 {
@@ -59,20 +69,39 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             }
             catch (Exception)
             {
-                throw new Exception($"Type config for  {objectType} not found");
+                throw new Exception($"Type config for {objectType} not found");
             }
 
             ConstructorInfo defaultctor = ctors.DefaultIfEmpty(null).SingleOrDefault(c => !c.GetParameters().Any());
 
             foreach (var ctor in ctors.Where(c => c.GetParameters().Any()))
             {
-                var paramnames = ctor.GetParameters().Select(p => p.Name);
-                if (paramnames.Except(configDictionary.Keys).Count() == 0)
+                var ctorParams = ctor.GetParameters();
+                if (ctorParams.Select(p => p.Name).Except(configDictionary.Keys).Count() == 0)
                 {
                     var parameters = new List<object>();
                     foreach (var param in ctor.GetParameters())
                     {
-                        parameters.Add(configDictionary[param.Name]);
+                        try
+                        {
+                            dynamic pv;
+                            Type t = param.ParameterType;
+                            var parseMethod = t.GetMethod("Parse", new Type[] { typeof(String) });
+
+                            if (parseMethod != null)
+                            {
+                                pv = parseMethod.Invoke(null, new object[] { configDictionary[param.Name] });
+                            }
+                            else
+                            {
+                                pv = configDictionary[param.Name];
+                            }
+                            parameters.Add(pv);
+                        }
+                        catch (Exception e)
+                        {
+                            throw new AggregateException($"Unable to parse parameter {param.Name} value {configDictionary[param.Name]} to required type", new Exception[] { e });
+                        }
                     }
 
                     return ctor.Invoke(parameters.ToArray());
