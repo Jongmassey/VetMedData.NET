@@ -32,10 +32,10 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             return (IMutation)GetInstanceFromConfig(configDictionary, "Mutation");
         }
 
-        internal static IPopulation GetPopulationByNameFromConfig(IDictionary<string, string> configDictionary)
-        {
-            return (IPopulation)GetInstanceFromConfig(configDictionary, "Population");
-        }
+        // internal static IPopulation GetPopulationByNameFromConfig(IDictionary<string, string> configDictionary)
+        // {
+        //     return (IPopulation)GetInstanceFromConfig(configDictionary, "Population");
+        // }
 
         internal static ISelection GetSelectionByNameFromConfig(IDictionary<string, string> configDictionary)
         {

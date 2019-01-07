@@ -55,85 +55,47 @@ namespace VetMedData.NET.ProductMatching.Optimisation
         public static GeneticAlgorithm GetGeneticAlgorithm(IDictionary<string, string> configDictionary)
         {
             var chromosome = new ConfigurationChromosome();
-
-            ICrossover crossover;
-            switch (configDictionary["crossover"])
-            {
-                case "uniformCrossover":
-                    var mixProbability = float.Parse(configDictionary["mixProbability"]);
-                    crossover = new UniformCrossover(mixProbability);
-                    break;
-                default:
-                    crossover = new UniformCrossover(0.5f);
-                    break;
-            }
-            IPopulation population = new Population(int.Parse(configDictionary["populationMinSize"]),
-                int.Parse(configDictionary["populationMaxSize"]), chromosome);
-
             var fitness = new CorrectPercentageFitness();
-
-            ISelection selection;
-            switch (configDictionary["selection"])
-            {
-                case "EliteSelection":
-                    selection = new EliteSelection();
-                    break;
-                default:
-                    selection = new EliteSelection();
-                    break;
-            }
-
-            IMutation mutation;
-            switch (configDictionary["mutation"])
-            {
-                case "FlipBitMutation":
-                    mutation = new FlipBitMutation();
-                    break;
-                default:
-                    mutation = new FlipBitMutation();
-                    break;
-            }
-
-            ITermination termination;
-            switch (configDictionary["termination"])
-            {
-                case "FitnessStagnationTermination":
-                    var expectedStagnantGenerationsNumber =
-                        int.Parse(configDictionary["expectedStagnantGenerationsNumber"]);
-                    termination = new FitnessStagnationTermination(expectedStagnantGenerationsNumber);
-                    break;
-                default:
-                    termination = new FitnessStagnationTermination(100);
-                    break;
-            }
+             IPopulation population = new Population(int.Parse(configDictionary["populationMinSize"]),
+                 int.Parse(configDictionary["populationMaxSize"]), chromosome);
+            
             var ga = new GeneticAlgorithm(
                     population,
                     fitness,
-                    selection,
-                    crossover,
-                    mutation)
-            { Termination = termination };
+                    GeneticSharpHelpers.GetSelectionByNameFromConfig(configDictionary),
+                    GeneticSharpHelpers.GetCrossoverByNameFromConfig(configDictionary),
+                    GeneticSharpHelpers.GetMutationByNameFromConfig(configDictionary))
+            { Termination = GeneticSharpHelpers.GetTerminationByNameFromConfig(configDictionary) };
+
+            if (configDictionary.ContainsKey("crossoverProbability")){
+                var xrfp = float.Parse(configDictionary["crossoverProbability"]);
+                ga.CrossoverProbability  = xrfp;
+            }
+
+            if (configDictionary.ContainsKey("mutationProbability")){
+                var mp = float.Parse(configDictionary["mutationProbability"]);
+                ga.MutationProbability = mp;
+            }
+
             return ga;
         }
 
         public static GeneticAlgorithm GetGeneticAlgorithm()
         {
-            var chromosome = new ConfigurationChromosome();
-            var population = new Population(50, 100, chromosome);
-            var fitness = new CorrectPercentageFitness();
-            var selection = new EliteSelection();
-            var crossover = new UniformCrossover(0.5f);
-            var mutation = new FlipBitMutation();
-            var termination = new FitnessStagnationTermination(100);
+            
+            var configDictionary = new Dictionary<string, string>()
+            {
+                {"crossover", "UniformCrossover"}
+                ,{"mixProbability", "0.5"}
+                ,{"selection", "EliteSelection"}
+                ,{"mutation","FlipBitMutation"}
+                ,{"termination","FitnessStagnationTermination"}
+                ,{"expectedStagnantGenerationsNumber","100"}
+                ,{"populationMinSize","50"}
+                ,{"populationMaxSize","100"}
+            };
 
-            var ga = new GeneticAlgorithm(
-                    population,
-                    fitness,
-                    selection,
-                    crossover,
-                    mutation)
-            { Termination = termination };
-            return ga;
+            return GetGeneticAlgorithm(configDictionary);
         }
     }
 }
