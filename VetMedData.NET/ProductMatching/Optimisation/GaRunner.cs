@@ -55,8 +55,6 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             };
             return obc;
         }
-
-//TODO:ctor params
          private static ICrossover GetCrossoverByNameFromConfig(IDictionary<string, string> configDictionary)
          {
              var xovers = Assembly.Load("GeneticSharp.Domain.Crossovers");
@@ -64,15 +62,12 @@ namespace VetMedData.NET.ProductMatching.Optimisation
              try {
              ctors= xovers.GetExportedTypes().Single(t=>t.Name.Equals(configDictionary["crossover"])).GetType().GetConstructors();
              }
-             catch (Exception e){
+             catch (Exception){
                  throw new Exception($"Invalid crossover {configDictionary["crossover"]}");
              }
              
-            ConstructorInfo defaultctor = null;
-            if(ctors.Any(c=>!c.GetParameters().Any())){
-                defaultctor = ctors.Single(c=>!c.GetParameters().Any());
-            }           
-
+            ConstructorInfo defaultctor =  ctors.DefaultIfEmpty(null).SingleOrDefault(c=>!c.GetParameters().Any());
+            
             foreach(var ctor in ctors.Where(c=>c.GetParameters().Any()))
             {
                 var paramnames = ctor.GetParameters().Select(p=>p.Name);
@@ -84,7 +79,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                         parameters.Add(configDictionary[param.Name]);
                     }
 
-                    return  (ICrossover)  ctor.Invoke(new object[]{});
+                    return  (ICrossover)  ctor.Invoke(parameters.ToArray());
                 }
                 
             }
