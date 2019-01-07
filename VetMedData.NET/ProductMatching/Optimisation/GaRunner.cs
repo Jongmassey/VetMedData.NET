@@ -55,6 +55,50 @@ namespace VetMedData.NET.ProductMatching.Optimisation
             };
             return obc;
         }
+
+        private static object GetInstanceFromConfig(IDictionary<string,string> configDictionary,string objectType,string parentAssemblyName ="GeneticSharp.Domain"){
+            var asm = Assembly.Load($"{parentAssemblyName}.{objectType}");
+            ConstructorInfo[] ctors;
+            try{
+            string objectTypeName = configDictionary[objectType];
+            
+             try {
+                ctors= asm.GetExportedTypes().Single(t=>t.Name.Equals(objectTypeName)).GetType().GetConstructors();
+             }
+             catch (Exception){
+                 throw new Exception($"Invalid {objectType} {objectTypeName}");
+             }
+             }
+             catch(Exception){
+                 throw new Exception($"Type config for  {objectType} not found");
+             }
+
+
+              ConstructorInfo defaultctor =  ctors.DefaultIfEmpty(null).SingleOrDefault(c=>!c.GetParameters().Any());
+            
+            foreach(var ctor in ctors.Where(c=>c.GetParameters().Any()))
+            {
+                var paramnames = ctor.GetParameters().Select(p=>p.Name);
+                if(paramnames.Except(configDictionary.Keys).Count()==0)
+                {
+                    var parameters = new List<object>();
+                    foreach (var param in ctor.GetParameters())
+                    {
+                        parameters.Add(configDictionary[param.Name]);
+                    }
+
+                    return  ctor.Invoke(parameters.ToArray());
+                }
+                
+            }
+            
+            if(defaultctor!=null)
+            {
+                return defaultctor.Invoke(new object[]{});
+            }
+            throw new Exception($"Inadequate constructor parameters and no default ctor for {configDictionary[objectType]}");
+        }
+
          private static ICrossover GetCrossoverByNameFromConfig(IDictionary<string, string> configDictionary)
          {
              var xovers = Assembly.Load("GeneticSharp.Domain.Crossovers");
