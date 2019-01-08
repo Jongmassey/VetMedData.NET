@@ -6,7 +6,6 @@ using GeneticSharp.Domain;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Crossovers;
 using GeneticSharp.Domain.Mutations;
-using GeneticSharp.Domain.Populations;
 using GeneticSharp.Domain.Selections;
 using GeneticSharp.Domain.Terminations;
 using System.Runtime.CompilerServices;
@@ -91,7 +90,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                             Type t = param.ParameterType;
 
                             //if ctor parameter type has parse from string method, use it.
-                            var parseMethod = t.GetMethod("Parse", new Type[] { typeof(String) });
+                            var parseMethod = t.GetMethod("Parse", new[] { typeof(String) });
                             if (parseMethod != null)
                             {
                                 pv = parseMethod.Invoke(null, new object[] { configDictionary[param.Name] });
@@ -104,7 +103,7 @@ namespace VetMedData.NET.ProductMatching.Optimisation
                         }
                         catch (Exception e)
                         {
-                            throw new AggregateException($"Unable to parse parameter {param.Name} value {configDictionary[param.Name]} to required type", new Exception[] { e });
+                            throw new AggregateException($"Unable to parse parameter {param.Name} value {configDictionary[param.Name]} to required type", new[] { e });
                         }
                     }
 

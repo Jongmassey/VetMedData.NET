@@ -1,10 +1,6 @@
 ﻿using GeneticSharp.Domain;
 using GeneticSharp.Domain.Chromosomes;
-using GeneticSharp.Domain.Crossovers;
-using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Domain.Populations;
-using GeneticSharp.Domain.Selections;
-using GeneticSharp.Domain.Terminations;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
