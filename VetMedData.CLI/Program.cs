@@ -32,18 +32,18 @@ namespace VetMedData.CLI
             {
                 try
                 {
-                    var conf = ConfigParser.Parse(args[1]);
+                    var conf = Configuration.Parse(args[1]);
 
-                    switch (conf.Item1)
+                    switch (conf.Method)
                     {
-                        case "match":
-                            RunMatch(conf.Item2);
+                        case Configuration.Methods.MATCH:
+                            RunMatch(conf.ConfigDictionary);
                             break;
-                        case "explainmatch":
-                            ExplainMatch(conf.Item2);
+                        case Configuration.Methods.EXPLAIN:
+                            ExplainMatch(conf.ConfigDictionary);
                             break;
-                        case "optimise":
-                            Optimise(conf.Item2);
+                        case Configuration.Methods.OPTIMISE:
+                            Optimise(conf.ConfigDictionary);
                             break;
                         default:
                             throw new Exception("unknown method");

@@ -6,16 +6,19 @@ using YamlDotNet.RepresentationModel;
 
 namespace VetMedData.CLI
 {
-    internal static class ConfigParser
+    internal class Configuration
     {
-        //public Dictionary<string,string> MethodConfig { get; set; }
+        public Methods Method { get; set; }
+        public Dictionary<string,string> ConfigDictionary { get; set; }
 
-        //public ConfigParser(string pathToYaml)
-        //{
-        //     if(!File.Exists(pathToYaml)) { throw new FileNotFoundException("unable to find YAML config file");}
-        //}
+        internal enum Methods
+        {
+            MATCH,
+            EXPLAIN,
+            OPTIMISE
+        }
 
-        public static Tuple<string,Dictionary<string, string>> Parse(string pathToYaml)
+        internal static Configuration Parse(string pathToYaml)
         {
             if (!File.Exists(pathToYaml)) { throw new FileNotFoundException("unable to find YAML config file"); }
             using (var sr = new StringReader(pathToYaml))
