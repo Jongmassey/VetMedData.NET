@@ -34,7 +34,7 @@ namespace VetMedData.CLI
                 }
 
                 var method = ((YamlScalarNode)mapping.Children[new YamlScalarNode("method")]).Value;
-                if (!(new[] {"", "", ""}).Contains(method))
+                if (!Enum.GetNames(typeof(Methods)).Contains(method))
                 {
                     throw new KeyNotFoundException($"unknown method name{method}");
                 }
@@ -46,29 +46,11 @@ namespace VetMedData.CLI
 
                 var configNode = (YamlMappingNode)mapping.Children[new YamlScalarNode($"{method}Config")];
                 
-
-                if (method.Contains("match"))
-                {
-                    return new Tuple<string, Dictionary<string, string>>(method,
-                        ParseMatchConfig(configNode));
-                }
-
-                return new Tuple<string, Dictionary<string, string>>(method,
-                    ParseOptimiseConfig(configNode));
-
+                return new Configuration() {
+                    Method = (Methods)Enum.Parse(typeof(Methods),method.ToUpperInvariant()),
+                    ConfigDictionary =  configNode.Children.ToDictionary(c => c.Key.ToString(), c => c.Value.ToString())
+                };
             }
         }
-
-        private static Dictionary<string, string> ParseMatchConfig(YamlMappingNode configNode)
-        {
-            return configNode.Children.ToDictionary(c => c.Key.ToString(), c => c.Value.ToString());
-        }
-
-        private static Dictionary<string, string> ParseOptimiseConfig(YamlMappingNode configNode)
-        {
-            return configNode.Children.ToDictionary(c => c.Key.ToString(), c => c.Value.ToString());
-        }
-
-
     }
 }
