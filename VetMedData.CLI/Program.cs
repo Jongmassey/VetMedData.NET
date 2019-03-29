@@ -24,9 +24,19 @@ namespace VetMedData.CLI
             if (args.Length > 0 && File.Exists(args[0]))
             {
                 var sb = new StringBuilder("\"Input Name\",\"Matched Name\",\"VM Number\",\"Similarity Score\"" + Environment.NewLine);
-                var pid = VMDPIDFactory.GetVmdPid(PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
-                                                  PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
-                                                  PidFactoryOptions.PersistentPid).Result;
+                PidFactoryOptions opts;
+                if (args.Length > 2)
+                {
+                    opts = PidFactoryOptions.PersistentPid;
+                }
+                else
+                {
+                    opts = PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
+                           PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
+                           PidFactoryOptions.PersistentPid;
+                }
+
+                var pid = VMDPIDFactory.GetVmdPid(opts).Result;
                 var cfg = new DefaultProductMatchConfig();
                 var pmr = new ProductMatchRunner(cfg);
                 var sw = Stopwatch.StartNew();
