@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
+using SimMetrics.Net.API;
 using VetMedData.NET.Model;
 
 namespace VetMedData.NET.ProductMatching
@@ -62,6 +63,14 @@ namespace VetMedData.NET.ProductMatching
             ProductNameSimilarity =
                     new ProductNameMetric(cfg.NameMetricConfig)
                         .GetSimilarity(product.Product.Name, referenceProduct.Name)
+        };
+
+        public static ProductSimilarityResult GetBasicMatchingResult<T>(this ActionedProduct product, ReferenceProduct referenceProduct, T metric) where T: AbstractStringMetric => new ProductSimilarityResult
+        {
+            InputProduct = product,
+            ReferenceProduct = referenceProduct,
+            ProductNameSimilarity =
+                metric.GetSimilarity(product.Product.Name, referenceProduct.Name)
         };
     }
 }

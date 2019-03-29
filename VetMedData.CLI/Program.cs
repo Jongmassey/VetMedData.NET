@@ -1,4 +1,5 @@
 ﻿using GeneticSharp.Domain.Chromosomes;
+using SimMetrics.Net.Metric;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimMetrics.Net.API;
 using VetMedData.NET.Model;
 using VetMedData.NET.ProductMatching;
 using VetMedData.NET.ProductMatching.Optimisation;
@@ -49,7 +51,30 @@ namespace VetMedData.CLI
                           ActionDate = DateTime.Now
                       };
 
-                      var res = pmr.GetMatch(ap, pid.RealProducts);
+                      ProductSimilarityResult res;
+                      if (args.Length > 1)
+                      {
+                          AbstractStringMetric metric;
+                          switch (args[1].ToLowerInvariant())
+                          {
+                              case "levenstein":
+                                  metric = new Levenstein();
+                                  break;
+                              case "mongeelkan":
+                                  metric = new MongeElkan();
+                                  break;
+                              default:
+                                  metric = new Levenstein();
+                                  break;
+                          }
+
+                          res = pid.RealProducts.Select(p => ap.GetBasicMatchingResult(p, metric))
+                              .OrderByDescending(p => p.ProductNameSimilarity).First();
+                      }
+                      else
+                      {
+                          res = pmr.GetMatch(ap, pid.RealProducts);
+                      }
                       lock (sb)
                       {
                           sb.AppendJoin(',',
