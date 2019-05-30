@@ -1,0 +1,783 @@
+T1	Brand 0 7	Micotil
+T2	Concentration 8 11	300
+T3	Unit 12 17	mg/ml
+R1	Concentration-Unit Arg1:T2 Arg2:T3
+T4	Brand 41 49	Norodine
+T5	Brand 63 73	Terramycin
+T6	Concentration 77 80	200
+T7	Unit 81 86	mg/ml
+R2	Concentration-Unit Arg1:T6 Arg2:T7
+T9	Brand 110 118	Antirobe
+T10	Concentration 128 130	25
+T11	Unit 131 133	mg
+R3	Concentration-Unit Arg1:T10 Arg2:T11
+T12	Brand 134 146	Trimediazine
+T13	Brand 165 172	Betamox
+T14	Concentration 173 176	150
+T15	Unit 177 182	mg/ml
+R4	Concentration-Unit Arg1:T14 Arg2:T15
+T16	Brand 208 220	Trimediazine
+T17	Concentration 221 223	15
+T18	Unit 223 225	% 
+R5	Concentration-Unit Arg1:T17 Arg2:T18
+T19	Brand 260 267	Apralan
+T20	Brand 314 322	Duphamox
+T21	Concentration 323 326	150
+T22	Unit 327 332	mg/ml
+R6	Concentration-Unit Arg1:T21 Arg2:T22
+T23	Brand 358 365	Betamox
+T24	Concentration 369 372	150
+T25	Unit 373 378	mg/ml
+R7	Concentration-Unit Arg1:T24 Arg2:T25
+T26	Duration-of-Action 366 368	LA
+T27	Brand 404 412	Denagard
+T28	Concentration 413 415	80
+T29	Unit 415 420	% w/w
+R8	Concentration-Unit Arg1:T28 Arg2:T29
+T30	Brand 478 487	Lactaclox
+T31	Brand 510 517	Amfipen
+T32	Concentration 521 524	100
+T33	Unit 525 530	mg/ml
+R9	Concentration-Unit Arg1:T32 Arg2:T33
+T34	Duration-of-Action 518 520	LA
+T35	Brand 556 564	Duphapen
+T36	Concentration 593 596	200
+T37	Unit 597 599	mg
+R10	Concentration-Unit Arg1:T36 Arg2:T37
+T38	Concentration 631 634	250
+T39	Unit 635 637	mg
+R11	Concentration-Unit Arg1:T38 Arg2:T39
+T40	Brand 663 670	Baytril
+T41	Sub-Brand 671 678	Flavour
+R12	Brand-Sub Arg1:T40 Arg2:T41
+T42	Concentration 687 690	150
+T43	Unit 691 693	mg
+R13	Concentration-Unit Arg1:T42 Arg2:T43
+T44	Brand 694 701	Baytril
+T45	Sub-Brand 702 709	Flavour
+R14	Brand-Sub Arg1:T44 Arg2:T45
+T46	Concentration 718 720	50
+T47	Unit 721 723	mg
+R15	Concentration-Unit Arg1:T46 Arg2:T47
+T48	Brand 724 731	Baytril
+T49	Sub-Brand 732 739	Flavour
+R16	Brand-Sub Arg1:T48 Arg2:T49
+T50	Concentration 748 750	15
+T51	Unit 751 753	mg
+R17	Concentration-Unit Arg1:T50 Arg2:T51
+T52	Brand 754 761	Baytril
+T53	Concentration 762 764	50
+T54	Unit 765 770	mg/ml
+R18	Concentration-Unit Arg1:T53 Arg2:T54
+T55	Brand 794 801	Baytril
+T56	Concentration 802 804	25
+T57	Unit 805 810	mg/ml
+R19	Concentration-Unit Arg1:T56 Arg2:T57
+T58	Brand 834 842	Alamycin
+T59	Concentration 851 855	3.58
+T60	Unit 855 860	% w/w
+R20	Concentration-Unit Arg1:T59 Arg2:T60
+T61	Brand 887 895	Vetremox
+T62	Concentration 896 899	100
+T63	Unit 899 904	% w/w
+R21	Concentration-Unit Arg1:T62 Arg2:T63
+T64	Brand 938 947	Stomorgyl
+T65	Brand 971 980	Stomorgyl
+T66	Brand 1004 1011	Orbenin
+T67	Concentration 1032 1037	16.67
+T68	Unit 1037 1042	% w/w
+R22	Concentration-Unit Arg1:T67 Arg2:T68
+T69	Brand 1056 1065	Stomorgyl
+T70	Brand 1088 1097	Duphatrim
+T71	Sub-Brand 1098 1100	IS
+R23	Brand-Sub Arg1:T70 Arg2:T71
+T72	Concentration 1134 1136	40
+T73	Unit 1137 1139	mg
+R24	Concentration-Unit Arg1:T72 Arg2:T73
+T74	Concentration 1157 1160	200
+T75	Unit 1161 1163	mg
+R25	Concentration-Unit Arg1:T74 Arg2:T75
+T76	Brand 1187 1194	Synulox
+T77	Concentration 1201 1204	500
+T78	Unit 1205 1207	mg
+R26	Concentration-Unit Arg1:T77 Arg2:T78
+T79	Brand 1228 1236	Alamycin
+T80	Sub-Brand 1240 1243	300
+R27	Brand-Sub Arg1:T79 Arg2:T80
+T82	Unit 1271 1276	mg/ml
+T83	Duration-of-Action 1237 1239	LA
+T84	Brand 1277 1280	Pen
+T85	Sub-Brand 1281 1288	& Strep
+R29	Brand-Sub Arg1:T84 Arg2:T85
+T86	Brand 1314 1322	Noroclox
+T87	Concentration 1326 1329	500
+T88	Unit 1330 1332	mg
+R30	Concentration-Unit Arg1:T87 Arg2:T88
+T89	Lactation-Phase 1323 1325	DC
+T90	Brand 1357 1365	Denagard
+T91	Concentration 1366 1367	2
+T92	Unit 1367 1372	% w/w
+R31	Concentration-Unit Arg1:T91 Arg2:T92
+T93	Brand 1439 1447	Denagard
+T94	Concentration 1448 1452	12.5
+T95	Unit 1452 1457	% w/v
+R32	Concentration-Unit Arg1:T94 Arg2:T95
+T96	Brand 1488 1496	Lincocin
+T97	Concentration 1514 1517	100
+T98	Unit 1518 1523	mg/ml
+R33	Concentration-Unit Arg1:T97 Arg2:T98
+T99	Brand 1555 1563	Bovaclox
+T100	Sub-Brand 1567 1571	Xtra
+R34	Brand-Sub Arg1:T99 Arg2:T100
+T101	Lactation-Phase 1564 1566	DC
+T102	Brand 1596 1604	Opticlox
+T103	Concentration 1618 1622	16.7
+T104	Unit 1622 1627	% w/w
+R35	Concentration-Unit Arg1:T103 Arg2:T104
+T105	Brand 1628 1634	Tiacil
+T106	Concentration 1635 1638	0.5
+T107	Unit 1639 1644	% w/v
+R36	Concentration-Unit Arg1:T106 Arg2:T107
+T108	Brand 1665 1675	Terramycin
+T109	Concentration 1690 1694	3.92
+T110	Unit 1694 1699	% w/w
+R37	Concentration-Unit Arg1:T109 Arg2:T110
+T111	Brand 1716 1725	Multiject
+T112	Sub-Brand 1726 1729	IMM
+R38	Brand-Sub Arg1:T111 Arg2:T112
+T113	Brand 1754 1761	Betamox
+T114	Sub-Brand 1769 1778	Palatable
+R39	Brand-Sub Arg1:T113 Arg2:T114
+T115	Concentration 1762 1765	200
+T116	Unit 1766 1768	mg
+R40	Concentration-Unit Arg1:T115 Arg2:T116
+T117	Brand 1787 1795	Lincocin
+T118	Concentration 1812 1815	400
+T119	Unit 1816 1820	mg/g
+R41	Concentration-Unit Arg1:T118 Arg2:T119
+T120	Brand 1854 1860	Neopen
+T121	Brand 1886 1894	Norodine
+T122	Brand 1906 1917	Trimedoxine
+T123	Brand 1929 1937	Norodine
+T124	Brand 1956 1968	Trimediazine
+T125	Brand 1986 1994	Norodine
+T126	Sub-Brand 1995 1997	24
+R42	Brand-Sub Arg1:T125 Arg2:T126
+T127	Brand 2021 2028	Betamox
+T128	Concentration 2072 2074	50
+T129	Unit 2075 2080	mg/ml
+R43	Concentration-Unit Arg1:T128 Arg2:T129
+T130	Brand 2081 2091	Framomycin
+T131	Concentration 2092 2095	150
+T132	Unit 2096 2101	mg/ml
+R44	Concentration-Unit Arg1:T131 Arg2:T132
+T133	Brand 2125 2133	Alamycin
+T134	Concentration 2137 2140	200
+T135	Unit 2141 2146	mg/ml
+R45	Concentration-Unit Arg1:T134 Arg2:T135
+T136	Duration-of-Action 2134 2136	LA
+T137	Brand 2170 2178	Norodine
+T138	Brand 2188 2197	Kloxerate
+T139	Sub-Brand 2198 2202	Gold
+R46	Brand-Sub Arg1:T138 Arg2:T139
+T140	Lactation-Phase 2203 2205	DC
+T141	Brand 2231 2240	Devomycin
+T142	Concentration 2241 2244	250
+T143	Unit 2245 2250	mg/ml
+R47	Concentration-Unit Arg1:T142 Arg2:T143
+T144	Brand 2274 2278	Ubro
+T145	Sub-Brand 2279 2282	Red
+R48	Brand-Sub Arg1:T144 Arg2:T145
+T146	Lactation-Phase 2283 2290	Dry Cow
+T147	Brand 2315 2319	Ubro
+T148	Sub-Brand 2320 2326	Yellow
+R49	Brand-Sub Arg1:T147 Arg2:T148
+T149	Lactation-Phase 2327 2338	Milking Cow
+T150	Brand 2363 2374	Tetra-Delta
+T151	Brand 2399 2404	Tylan
+T152	Sub-Brand 2405 2408	G20
+R50	Brand-Sub Arg1:T151 Arg2:T152
+T153	Brand 2443 2450	Aquatet
+T154	Concentration 2451 2454	100
+T155	Unit 2454 2459	% w/w
+R51	Concentration-Unit Arg1:T154 Arg2:T155
+T156	Brand 2495 2500	Tylan
+T157	Brand 2534 2542	Bimotrim
+T158	Sub-Brand 2543 2545	Co
+R52	Brand-Sub Arg1:T157 Arg2:T158
+T159	Brand 2579 2586	Surolan
+T160	Brand 2622 2630	Pathocef
+T161	Concentration 2631 2634	250
+T162	Unit 2635 2637	mg
+R53	Concentration-Unit Arg1:T161 Arg2:T162
+T163	Brand 2662 2669	Ronaxan
+T164	Concentration 2670 2673	100
+T165	Unit 2674 2676	mg
+R54	Concentration-Unit Arg1:T164 Arg2:T165
+T166	Brand 2684 2692	Denagard
+T167	Concentration 2693 2696	200
+T168	Unit 2697 2702	mg/ml
+R55	Concentration-Unit Arg1:T167 Arg2:T168
+T169	Brand 2726 2733	Tetroxy
+T170	Concentration 2739 2742	200
+T171	Unit 2743 2748	mg/ml
+R56	Concentration-Unit Arg1:T170 Arg2:T171
+T172	Duration-of-Action 2734 2738	L.A.
+T173	Brand 2788 2795	Isathal
+T174	Concentration 2796 2798	10
+T175	Unit 2799 2803	mg/g
+R57	Concentration-Unit Arg1:T174 Arg2:T175
+T176	Brand 2853 2860	Baytril
+T177	Concentration 2861 2864	100
+T178	Unit 2865 2870	mg/ml
+R58	Concentration-Unit Arg1:T177 Arg2:T178
+T179	Brand 2894 2901	Baytril
+T180	Concentration 2915 2918	0.5
+T181	Unit 2918 2920	% 
+R59	Concentration-Unit Arg1:T180 Arg2:T181
+T182	Brand 2934 2941	Baytril
+T183	Concentration 2942 2945	2.5
+T184	Unit 2945 2947	% 
+R60	Concentration-Unit Arg1:T183 Arg2:T184
+T185	Brand 2961 2968	Baytril
+T186	Concentration 2969 2971	10
+T187	Unit 2971 2973	% 
+R61	Concentration-Unit Arg1:T186 Arg2:T187
+T188	Brand 2987 2995	Bovaclox
+T189	Lactation-Phase 2996 2998	DC
+T190	Brand 3023 3032	Trigoderm
+T191	Concentration 3037 3040	0.5
+T192	Unit 3040 3045	% w/w
+R62	Concentration-Unit Arg1:T191 Arg2:T192
+T193	Concentration 3060 3063	0.1
+T194	Unit 3063 3068	% w/w
+R63	Concentration-Unit Arg1:T193 Arg2:T194
+T195	Brand 3083 3091	Noroclox
+T196	Sub-Brand 3095 3099	Xtra
+R64	Brand-Sub Arg1:T195 Arg2:T196
+T197	Concentration 3100 3103	600
+T198	Unit 3104 3106	mg
+R65	Concentration-Unit Arg1:T197 Arg2:T198
+T199	Lactation-Phase 3092 3094	DC
+T200	Brand 3131 3138	Bimoxyl
+T201	Concentration 3143 3146	150
+T202	Unit 3147 3152	mg/ml
+R66	Concentration-Unit Arg1:T201 Arg2:T202
+T203	Duration-of-Action 3139 3142	LA,
+T204	Brand 3191 3203	Duphacycline
+T205	Concentration 3207 3209	20
+T206	Unit 3209 3211	% 
+R67	Concentration-Unit Arg1:T205 Arg2:T206
+T207	Duration-of-Action 3204 3206	LA
+T208	Brand 3234 3246	Trimediazine
+T209	Sub-Brand 3247 3250	BMP
+R68	Brand-Sub Arg1:T208 Arg2:T209
+T210	Brand 3286 3293	Synulox
+T211	Concentration 3312 3315	500
+T212	Unit 3316 3318	mg
+R69	Concentration-Unit Arg1:T211 Arg2:T212
+T213	Brand 3319 3325	Stabox
+T214	Concentration 3326 3327	5
+T215	Unit 3327 3332	% w/w
+R70	Concentration-Unit Arg1:T214 Arg2:T215
+T216	Brand 3380 3387	Ronaxan
+T217	Concentration 3388 3390	20
+T218	Unit 3391 3393	mg
+R71	Concentration-Unit Arg1:T217 Arg2:T218
+T219	Brand 3401 3411	Terramycin
+T220	Concentration 3440 3442	20
+T221	Unit 3442 3447	% w/w
+R72	Concentration-Unit Arg1:T220 Arg2:T221
+T222	Brand 3460 3468	Pulmotil
+T223	Sub-Brand 3469 3473	G200
+R73	Brand-Sub Arg1:T222 Arg2:T223
+T224	Brand 3508 3516	Pulmotil
+T225	Sub-Brand 3517 3521	G100
+R74	Brand-Sub Arg1:T224 Arg2:T225
+T226	Brand 3557 3564	Advocin
+T227	Concentration 3565 3568	2.5
+T228	Unit 3568 3570	% 
+R75	Concentration-Unit Arg1:T227 Arg2:T228
+T229	Brand 3593 3602	Amoxinsol
+T230	Concentration 3603 3605	50
+T231	Unit 3605 3610	% w/w
+R76	Concentration-Unit Arg1:T230 Arg2:T231
+T232	Brand 3636 3644	Duphapen
+T233	Concentration 3645 3648	300
+T234	Unit 3649 3654	mg/ml
+R77	Concentration-Unit Arg1:T233 Arg2:T234
+T235	Brand 3680 3689	Engemycin
+T236	Concentration 3690 3692	10
+T237	Unit 3692 3694	% 
+R78	Concentration-Unit Arg1:T236 Arg2:T237
+T238	Brand 3720 3728	Alamycin
+T239	Concentration 3729 3732	100
+T240	Unit 3733 3738	mg/ml
+R79	Concentration-Unit Arg1:T239 Arg2:T240
+T241	Brand 3763 3768	Tylan
+T242	Sub-Brand 3769 3772	200
+T243	Unit 3778 3783	mg/ml
+T244	Brand 3808 3816	Canaural
+T245	Brand 3857 3865	Amoxypen
+T246	Concentration 3869 3872	150
+T247	Unit 3873 3878	mg/ml
+R81	Concentration-Unit Arg1:T246 Arg2:T247
+T248	Duration-of-Action 3866 3868	LA
+T249	Brand 3904 3912	Amoxypen
+T250	Concentration 3923 3926	150
+T251	Unit 3927 3932	mg/ml
+R82	Concentration-Unit Arg1:T250 Arg2:T251
+T252	Brand 3959 3968	Engemycin
+T253	Concentration 3972 3975	200
+T254	Unit 3976 3981	mg/ml
+R83	Concentration-Unit Arg1:T253 Arg2:T254
+T255	Duration-of-Action 3969 3971	LA
+T256	Brand 4005 4013	Chlorsol
+T257	Concentration 4014 4016	50
+T258	Unit 4016 4018	% 
+R84	Concentration-Unit Arg1:T257 Arg2:T258
+T259	Brand 4043 4051	Cobactan
+T260	Concentration 4056 4058	75
+T261	Unit 4059 4061	mg
+R85	Concentration-Unit Arg1:T260 Arg2:T261
+T262	Lactation-Phase 4052 4055	LC,
+T263	Lactation-Phase 4089 4105	Lactating Cattle
+T264	Brand 4106 4116	Erythrocin
+T265	Concentration 4117 4121	16.5
+T266	Unit 4121 4126	% w/w
+R86	Concentration-Unit Arg1:T265 Arg2:T266
+T267	Brand 4160 4166	Orojet
+T268	Brand 4186 4195	Amoxinsol
+T269	Concentration 4196 4199	100
+T270	Unit 4199 4204	% w/w
+R87	Concentration-Unit Arg1:T269 Arg2:T270
+T271	Brand 4230 4237	Synulox
+T272	Brand 4282 4292	Depocillin
+T273	Concentration 4293 4296	300
+T274	Unit 4297 4302	mg/ml
+R88	Concentration-Unit Arg1:T273 Arg2:T274
+T275	Brand 4328 4336	Ultrapen
+T276	Concentration 4340 4342	30
+T277	Unit 4342 4344	% 
+R89	Concentration-Unit Arg1:T276 Arg2:T277
+T278	Duration-of-Action 4337 4339	LA
+T279	Brand 4369 4377	Cobactan
+T280	Concentration 4378 4381	2.5
+T281	Unit 4381 4386	% w/v
+R90	Concentration-Unit Arg1:T280 Arg2:T281
+T282	Brand 4432 4440	Tetramin
+T283	Brand 4478 4485	Orbenin
+T284	Sub-Brand 4486 4491	Extra
+R91	Brand-Sub Arg1:T283 Arg2:T284
+T285	Concentration 4500 4503	600
+T286	Unit 4504 4506	mg
+R92	Concentration-Unit Arg1:T285 Arg2:T286
+T287	Lactation-Phase 4492 4499	Dry Cow
+T288	Brand 4531 4538	Synulox
+T289	Lactation-Phase 4539 4552	Lactating Cow
+T290	Brand 4577 4585	Clamoxyl
+T291	Concentration 4604 4607	200
+T292	Unit 4608 4610	mg
+R93	Concentration-Unit Arg1:T291 Arg2:T292
+T293	Brand 4611 4619	Clamoxyl
+T294	Concentration 4638 4640	40
+T295	Unit 4641 4643	mg
+R94	Concentration-Unit Arg1:T294 Arg2:T295
+T296	Brand 4644 4651	Synulox
+T297	Sub-Brand 4652 4664	Ready-to-Use
+R95	Brand-Sub Arg1:T296 Arg2:T297
+T298	Brand 4690 4697	Synulox
+T299	Concentration 4716 4719	250
+T300	Unit 4720 4722	mg
+R96	Concentration-Unit Arg1:T299 Arg2:T300
+T301	Brand 4723 4730	Synulox
+T302	Concentration 4749 4751	50
+T303	Unit 4752 4754	mg
+R97	Concentration-Unit Arg1:T302 Arg2:T303
+T304	Brand 4755 4763	Marbocyl
+T305	Concentration 4764 4766	10
+T306	Unit 4766 4768	% 
+R98	Concentration-Unit Arg1:T305 Arg2:T306
+T307	Brand 4791 4799	Cobactan
+T308	Concentration 4827 4829	75
+T309	Unit 4830 4832	mg
+R99	Concentration-Unit Arg1:T308 Arg2:T309
+T310	Lactation-Phase 4800 4802	MC
+T311	Lactation-Phase 4833 4844	Milking Cow
+T312	Brand 4845 4852	Spectam
+T313	Sub-Brand 4853 4863	Scour Halt
+R100	Brand-Sub Arg1:T312 Arg2:T313
+T314	Concentration 4878 4880	50
+T315	Unit 4881 4886	mg/ml
+R101	Concentration-Unit Arg1:T314 Arg2:T315
+T316	Brand 4887 4894	Oxycare
+T317	Concentration 4903 4906	250
+T318	Unit 4907 4909	mg
+R102	Concentration-Unit Arg1:T317 Arg2:T318
+T319	Brand 4910 4917	Orbenin
+T320	Concentration 4923 4926	200
+T321	Unit 4927 4929	mg
+R103	Concentration-Unit Arg1:T320 Arg2:T321
+T322	Duration-of-Action 4918 4922	L.A.
+T323	Brand 4954 4963	Amoxycare
+T324	Concentration 4964 4966	40
+T325	Unit 4967 4969	mg
+R104	Concentration-Unit Arg1:T324 Arg2:T325
+T326	Brand 4978 4987	Trimacare
+T327	Concentration 4988 4990	24
+T328	Unit 4990 4992	% 
+R105	Concentration-Unit Arg1:T327 Arg2:T328
+T329	Brand 5015 5024	Amoxycare
+T330	Concentration 5053 5055	15
+T331	Unit 5055 5060	% w/v
+R106	Concentration-Unit Arg1:T330 Arg2:T331
+T332	Duration-of-Action 5025 5027	LA
+T333	Brand 5061 5069	Clamoxyl
+T334	Sub-Brand 5070 5082	Ready-To-Use
+R107	Brand-Sub Arg1:T333 Arg2:T334
+T335	Concentration 5083 5086	150
+T336	Unit 5087 5092	mg/ml
+R108	Concentration-Unit Arg1:T335 Arg2:T336
+T337	Brand 5118 5127	Amoxycare
+T338	Concentration 5128 5131	200
+T339	Unit 5132 5134	mg
+R109	Concentration-Unit Arg1:T338 Arg2:T339
+T340	Brand 5143 5152	Amoxycare
+T341	Concentration 5178 5180	15
+T342	Unit 5180 5185	% w/v
+R110	Concentration-Unit Arg1:T341 Arg2:T342
+T343	Brand 5186 5193	Ceporex
+T344	Concentration 5194 5197	180
+T345	Unit 5198 5203	mg/ml
+R111	Concentration-Unit Arg1:T344 Arg2:T345
+T346	Brand 5255 5264	Crystapen
+T347	Sub-Brand 5265 5271	5 Mega
+R112	Brand-Sub Arg1:T346 Arg2:T347
+T348	Concentration 5278 5279	3
+T349	Unit 5269 5270	g
+R113	Concentration-Unit Arg1:T348 Arg2:T349
+T350	Brand 5315 5323	Cepravin
+T351	Concentration 5332 5335	250
+T352	Unit 5336 5338	mg
+R114	Concentration-Unit Arg1:T351 Arg2:T352
+T353	Lactation-Phase 5324 5331	Dry Cow
+T354	Brand 5363 5372	Trimacare
+T355	Brand 5384 5389	Tylan
+T356	Sub-Brand 5390 5394	G250
+R115	Brand-Sub Arg1:T355 Arg2:T356
+T357	Brand 5429 5437	Cobactan
+T358	Concentration 5438 5440	25
+T359	Unit 5441 5446	mg/ml
+R116	Concentration-Unit Arg1:T358 Arg2:T359
+T360	Brand 5472 5481	Amoxycare
+T361	Concentration 5525 5527	50
+T362	Unit 5528 5533	mg/ml
+R117	Concentration-Unit Arg1:T361 Arg2:T362
+T363	Brand 5534 5543	Oxytetrin
+T364	Sub-Brand 5544 5546	20
+R118	Brand-Sub Arg1:T363 Arg2:T364
+T365	Concentration 5550 5553	200
+T366	Unit 5554 5559	mg/ml
+R119	Concentration-Unit Arg1:T365 Arg2:T366
+T367	Duration-of-Action 5547 5549	LA
+T368	Brand 5583 5590	Oxycare
+T369	Concentration 5591 5594	3.6
+T370	Unit 5594 5599	% w/w
+R120	Concentration-Unit Arg1:T369 Arg2:T370
+T371	Brand 5625 5633	Synutrim
+T372	Sub-Brand 5634 5642	Fortesol
+R121	Brand-Sub Arg1:T371 Arg2:T372
+T373	Brand 5668 5675	Apralan
+T374	Sub-Brand 5676 5680	G200
+R122	Brand-Sub Arg1:T373 Arg2:T374
+T375	Brand 5716 5726	Norocillin
+T376	Concentration 5727 5729	30
+T377	Unit 5729 5734	% w/v
+R123	Concentration-Unit Arg1:T376 Arg2:T377
+T378	Brand 5760 5771	Streptacare
+T379	Brand 5797 5804	Oxycare
+T380	Concentration 5805 5807	20
+T381	Unit 5807 5812	% w/v
+R124	Concentration-Unit Arg1:T380 Arg2:T381
+T382	Duration-of-Action 5813 5815	LA
+T383	Brand 5839 5848	Trimacare
+T384	Brand 5863 5871	Marbocyl
+T385	Concentration 5872 5873	2
+T386	Unit 5873 5875	% 
+R125	Concentration-Unit Arg1:T385 Arg2:T386
+T387	Brand 5898 5905	Spectam
+T388	Concentration 5917 5919	10
+T389	Unit 5919 5924	% w/v
+R126	Concentration-Unit Arg1:T388 Arg2:T389
+T390	Brand 5948 5956	Marbocyl
+T391	Concentration 5963 5965	50
+T392	Unit 5966 5968	mg
+R127	Concentration-Unit Arg1:T391 Arg2:T392
+T393	Brand 5976 5985	Engemycin
+T394	Sub-Brand 5990 5999	Farm Pack
+R128	Brand-Sub Arg1:T393 Arg2:T394
+T395	Concentration 5986 5988	10
+T396	Unit 5988 5990	% 
+R129	Concentration-Unit Arg1:T395 Arg2:T396
+T397	Brand 6023 6028	Tylan
+T398	Sub-Brand 6029 6032	G50
+R130	Brand-Sub Arg1:T397 Arg2:T398
+T399	Physical-Form 18 40	Solution for Injection
+T400	Physical-Form 50 55	Bolus
+T401	Physical-Form 56 62	Tablet
+R131	Physicallly-Equivalent Arg1:T400 Arg2:T401	
+T8	Duration-of-Action 74 76	LA
+T402	Physical-Form 87 109	Solution for Injection
+T403	Physical-Form 119 127	Capsules
+T404	Physical-Form 153 164	Oral Powder
+T405	Physical-Form 183 207	Suspension for Injection
+T406	Physical-Form 225 259	Premix for Medicated Feeding Stuff
+T407	Physical-Form 268 308	Soluble Powder for Use in Drinking Water
+T408	Physical-Form 268 293;309 313	Soluble Powder for Use in Milk
+T409	Physical-Form 333 357	Suspension for Injection
+T410	Physical-Form 379 403	Suspension for Injection
+T411	Physical-Form 421 446	Premix for Medicated Feed
+T412	Target-Species 451 455	Pigs
+T413	Target-Species 457 465	Chickens
+T414	Target-Species 470 477	Turkeys
+T415	Physical-Form 488 509	Intramammary Infusion
+T416	Physical-Form 531 555	Suspension for Injection
+T417	Sub-Brand 567 572	Strep
+R132	Brand-Sub Arg1:T35 Arg2:T417	
+T418	Active-Ingredient 573 592	Procaine Penicillin
+R133	Active-Ingredient-Concentration Arg1:T418 Arg2:T36	
+T419	Active-Ingredient 602 630	Dihydrostreptomycin Sulphate
+R134	Active-Ingredient-Concentration Arg1:T419 Arg2:T38	
+T420	Physical-Form 638 662	Suspension for Injection
+T421	Physical-Form 679 686	Tablets
+T422	Physical-Form 710 717	Tablets
+T423	Physical-Form 740 747	Tablets
+T424	Physical-Form 771 793	Solution for Injection
+T425	Physical-Form 811 833	Solution for Injection
+T426	Physical-Form 861 876	Cutaneous Spray
+T427	Physical-Form 843 850	Aerosol
+R135	Physicallly-Equivalent Arg1:T426 Arg2:T427	
+T428	Physical-Form 861 870;878 886	Cutaneous Solution
+R136	Physicallly-Equivalent Arg1:T428 Arg2:T426	
+R137	Physicallly-Equivalent Arg1:T428 Arg2:T427	
+T429	Physical-Form 905 937	Powder for Use in Drinking Water
+T430	Physical-Form 951 970	Film-coated Tablets
+T431	Physical-Form 984 1003	Film-coated Tablets
+T432	Sub-Brand 948 950	20
+R138	Brand-Sub Arg1:T64 Arg2:T432	
+T433	Sub-Brand 981 983	10
+R139	Brand-Sub Arg1:T65 Arg2:T433	
+T434	Physical-Form 1012 1031	Ophthalmic Ointment
+T435	Physical-Form 1043 1055	Eye Ointment
+R140	Physicallly-Equivalent Arg1:T434 Arg2:T435	
+T436	Physical-Form 1068 1087	Film-coated Tablets
+T437	Sub-Brand 1066 1067	2
+R141	Brand-Sub Arg1:T69 Arg2:T437	
+T438	Physical-Form 1101 1120	Injectable Solution
+T439	Active-Ingredient 1121 1133	Trimethoprim
+R142	Active-Ingredient-Concentration Arg1:T439 Arg2:T72	
+T440	Active-Ingredient 1144 1156	Sulfadiazine
+R143	Active-Ingredient-Concentration Arg1:T440 Arg2:T74	
+T441	Physical-Form 1164 1186	Solution for Injection
+R144	Physicallly-Equivalent Arg1:T438 Arg2:T441	
+T442	Physical-Form 1098 1100	IS
+R145	Physicallly-Equivalent Arg1:T442 Arg2:T438	
+T443	Physical-Form 1208 1227	Film-Coated Tablets
+T81	Concentration 1267 1270	300
+R28	Concentration-Unit Arg1:T81 Arg2:T82	
+T444	Physical-Form 1244 1266	Solution for Injection
+T445	Physical-Form 1289 1313	Suspension for Injection
+T446	Physical-Form 1333 1356	Intramammary Suspension
+T447	Physical-Form 1373 1398	Premix for Medicated Feed
+T448	Target-Species 1403 1407	Pigs
+T449	Target-Species 1409 1417	Chickens
+T450	Target-Species 1419 1426	Turkeys
+T451	Target-Species 1431 1438	Rabbits
+T452	Physical-Form 1458 1487	Concentrate for Oral Solution
+T453	Physical-Form 1474 1487	Oral Solution
+R146	Physicallly-Equivalent Arg1:T452 Arg2:T453	
+T454	Physical-Form 1497 1513	Sterile Solution
+T455	Physical-Form 1524 1554	Sterile Solution for Injection
+R147	Physicallly-Equivalent Arg1:T454 Arg2:T455	
+T456	Physical-Form 1532 1554	Solution for Injection
+R148	Physicallly-Equivalent Arg1:T455 Arg2:T456	
+T457	Physical-Form 1572 1595	Intramammary Suspension
+T458	Physical-Form 1605 1617	Eye Ointment
+T459	Physical-Form 1645 1654	Eye Drops
+T460	Physical-Form 1645 1648;1656 1664	Eye Solution
+R149	Physicallly-Equivalent Arg1:T459 Arg2:T460	
+T461	Physical-Form 1676 1689	Aerosol Spray
+T462	Physical-Form 1700 1715	Cutaneous Spray
+R150	Physicallly-Equivalent Arg1:T461 Arg2:T462	
+T463	Physical-Form 1676 1683	Aerosol
+T464	Physical-Form 1684 1689	Spray
+R151	Physicallly-Equivalent Arg1:T463 Arg2:T464	
+R152	Physicallly-Equivalent Arg1:T463 Arg2:T461	
+R153	Physicallly-Equivalent Arg1:T464 Arg2:T461	
+T465	Physical-Form 1730 1753	Intramammary Suspension
+T466	Physical-Form 1779 1786	Tablets
+T467	Physical-Form 1769 1786	Palatable Tablets
+T468	Physical-Form 1796 1810	Soluble Powder
+T469	Physical-Form 1821 1853	Powder for Use in Drinking Water
+R154	Physicallly-Equivalent Arg1:T468 Arg2:T469	
+T470	Physical-Form 1861 1885	Suspension for Injection
+T471	Sub-Brand 1895 1897	80
+T472	Sub-Brand 1918 1920	80
+R155	Brand-Sub Arg1:T121 Arg2:T471	
+R156	Brand-Sub Arg1:T122 Arg2:T472	
+T473	Physical-Form 1898 1905	Tablets
+T474	Physical-Form 1921 1928	Tablets
+T475	Target-Species 1938 1944	Equine
+T476	Physical-Form 1945 1955	Oral Paste
+T477	Physical-Form 1975 1985	Oral Paste
+T478	Physical-Form 1998 2020	Solution for Injection
+T480	Physical-Form 2045 2071	Powder for Oral Suspension
+T481	Physical-Form 2029 2044	Palatable Drops
+T482	Physical-Form 2102 2124	Solution for Injection
+T483	Physical-Form 2147 2169	Solution for Injection
+T484	Physical-Form 2179 2187	Granules
+T479	Physical-Form 2206 2229	Intramammary Suspension
+T485	Physical-Form 2251 2273	Solution for Injection
+T486	Physical-Form 2291 2314	Intramammary Suspension
+T487	Physical-Form 2339 2362	Intramammary Suspension
+T488	Physical-Form 2375 2398	Intramammary Suspension
+T489	Physical-Form 2409 2442	Premix for Medicated Feedingstuff
+T490	Physical-Form 2460 2494	Premix for Medicated Feeding Stuff
+T491	Physical-Form 2556 2578	Solution for Injection
+T492	Physical-Form 2546 2555	Injection
+R157	Physicallly-Equivalent Arg1:T492 Arg2:T491	
+T493	Physical-Form 2501 2533	Soluble Powder for Oral Solution
+T494	Physical-Form 2520 2533	Oral Solution
+T495	Physical-Form 2587 2596	Ear Drops
+T496	Physical-Form 2601 2621	Cutaneous Suspension
+T497	Physical-Form 2638 2661	Intramammary Suspension
+T498	Physical-Form 2677 2683	Tablet
+T499	Physical-Form 2703 2725	Solution for Injection
+T500	Active-Ingredient 2749 2764	Oxytetracycline
+T501	Physical-Form 2765 2787	Solution for Injection
+T502	Physical-Form 2804 2813	Eye Drops
+T503	Target-Species 2830 2834	Dogs
+T504	Target-Species 2836 2840	Cats
+T505	Target-Species 2845 2852	Rabbits
+T506	Physical-Form 2871 2893	Solution for Injection
+T507	Physical-Form 2920 2933	Oral Solution
+T508	Target-Species 2902 2908	Piglet
+T509	Physical-Form 2947 2960	Oral Solution
+T510	Physical-Form 2973 2986	Oral Solution
+T511	Physical-Form 2999 3022	Intramammary Suspension
+T512	Active-Ingredient 3046 3058	Fusidic acid
+R158	Active-Ingredient-Concentration Arg1:T512 Arg2:T191	
+R159	Active-Ingredient-Concentration Arg1:T500 Arg2:T170	
+T513	Active-Ingredient 3069 3082	Betamethasone
+R160	Active-Ingredient-Concentration Arg1:T513 Arg2:T193	
+T514	Physical-Form 3033 3036	Gel
+T515	Physical-Form 3107 3130	Intramammary Suspension
+T516	Active-Ingredient 3153 3164	Amoxicillin
+R161	Active-Ingredient-Concentration Arg1:T516 Arg2:T201	
+T517	Physical-Form 3166 3190	Suspension for Injection
+T518	Physical-Form 3211 3233	Solution for Injection
+T519	Physical-Form 3251 3285	Premix for Medicated Feeding Stuff
+T520	Physical-Form 3294 3311	Palatable Tablets
+T521	Physical-Form 3304 3311	Tablets
+R162	Physicallly-Equivalent Arg1:T520 Arg2:T521	
+T522	Target-Species 3372 3379	Piglets
+T523	Physical-Form 3333 3367	Premix for Medicated Feeding Stuff
+T524	Physical-Form 3394 3400	Tablet
+T525	Physical-Form 3412 3426	Soluble Powder
+T526	Physical-Form 3448 3459	Oral Powder
+R163	Physicallly-Equivalent Arg1:T525 Arg2:T526	
+T527	Physical-Form 3474 3507	Premix for Medicated Feedingstuff
+T528	Physical-Form 3522 3555	Premix for Medicated Feedingstuff
+T529	Physical-Form 3570 3592	Solution for Injection
+T530	Physical-Form 3611 3635	Powder for Oral Solution
+T531	Physical-Form 6033 6066	Premix for Medicated Feedingstuff
+T532	Physical-Form 6000 6022	Solution for Injection
+T533	Physical-Form 5969 5975	Tablet
+T534	Physical-Form 5957 5962	Bolus
+R164	Physicallly-Equivalent Arg1:T534 Arg2:T533	
+T535	Physical-Form 5906 5916	Injectable
+T536	Physical-Form 5925 5947	Solution for Injection
+T537	Physical-Form 5875 5897	Solution for Injection
+T538	Physical-Form 5849 5856	Tablets
+T539	Physical-Form 5857 5862	Bolus
+R165	Physicallly-Equivalent Arg1:T538 Arg2:T539	
+T540	Physical-Form 5816 5838	Solution for Injection
+T541	Physical-Form 5772 5796	Suspension for Injection
+T542	Physical-Form 5681 5715	Premix for Medicated Feeding Stuff
+T543	Physical-Form 5735 5759	Suspension for Injection
+T544	Physical-Form 5643 5667	Powder for Oral Solution
+T545	Brand 5600 5615	Cutaneous Spray
+T546	Brand 5600 5610;5616 5624	Cutaneous  Solution
+T547	Physical-Form 5560 5582	Solution for Injection
+T548	Physical-Form 5482 5497	Palatable Drops
+T549	Physical-Form 5498 5524	Powder for Oral Suspension
+R166	Physicallly-Equivalent Arg1:T548 Arg2:T549	
+T550	Physical-Form 5447 5471	Suspension for Injection
+T551	Physical-Form 5395 5427	Premix for Medicated Feedingstuf
+T552	Sub-Brand 5373 5375	20
+R167	Brand-Sub Arg1:T354 Arg2:T552	
+T553	Physical-Form 5376 5383	Tablets
+T554	Physical-Form 5339 5362	Intramammary Suspension
+T555	Physical-Form 5281 5314	Powder for Solution for Injection
+T556	Physical-Form 5292 5314	Solution for Injection
+T557	Target-Species 5233 5239	Cattle
+T558	Target-Species 5241 5245	Cats
+T559	Target-Species 5250 5254	Dogs
+T560	Physical-Form 5204 5228	Suspension for Injection
+T561	Physical-Form 5153 5177	Suspension for Injection
+T562	Physical-Form 5135 5142	Tablets
+T563	Physical-Form 5093 5117	Suspension for Injection
+T564	Physical-Form 5028 5052	Suspension for Injection
+T565	Physical-Form 4992 5014	Solution for Injection
+T566	Physical-Form 4970 4977	Tablets
+T567	Physical-Form 4930 4953	Intramammary Suspension
+T568	Physical-Form 4864 4877	Oral Solution
+T569	Physical-Form 4803 4826	Intramammary Suspension
+T570	Physical-Form 4768 4790	Solution for Injection
+T571	Physical-Form 4731 4748	Palatable Tablets
+T572	Physical-Form 4698 4715	Palatable Tablets
+T573	Physical-Form 4620 4637	Palatable Tablets
+T574	Physical-Form 4586 4603	Palatable Tablets
+T575	Physical-Form 4665 4689	Suspension for Injection
+T576	Physical-Form 4507 4530	Intramammary Suspension
+T577	Target-Species 4841 4844	Cow
+T578	Physical-Form 4387 4411	Suspension for Injection
+T579	Target-Species 4416 4422	Cattle
+T580	Target-Species 4427 4431	Pigs
+T581	Physical-Form 4553 4576	Intramammary Suspension
+T582	Target-Species 4549 4552	Cow
+T583	Physical-Form 4895 4902	Tablets
+T584	Physical-Form 4344 4368	Suspension for Injection
+T585	Physical-Form 4303 4327	Suspension for Injection
+T586	Physical-Form 4238 4253	Palatable Drops
+T587	Physical-Form 4255 4281	Powder for Oral Suspension
+T588	Physical-Form 4205 4229	Powder for Oral Solution
+T589	Target-Species 4167 4171	Lamb
+T590	Physical-Form 4172 4185	Oral Solution
+T591	Physical-Form 4127 4141	Soluble Powder
+T592	Physical-Form 4146 4159	Oral Solution
+T593	Physical-Form 4063 4084	Intramammary Ointment
+T594	Physical-Form 4018 4042	Powder for Oral Solution
+T595	Physical-Form 3982 4004	Solution for Injection
+T596	Physical-Form 3934 3958	Suspension for Injection
+T597	Physical-Form 3879 3903	Suspension for Injection
+T598	Physical-Form 3817 3826	Ear Drops
+T599	Physical-Form 3828 3838	Suspension
+T600	Target-Species 3843 3847	Dogs
+T601	Target-Species 3852 3856	Cats
+T602	Physical-Form 3784 3806	Solution for Injection
+T603	Concentration 3774 3777	200
+R80	Concentration-Unit Arg1:T603 Arg2:T243	
+R168	Brand-Sub Arg1:T241 Arg2:T242	
+T604	Physical-Form 3739 3761	Solution for Injection
+T605	Target-Species 4099 4105	Cattle
+T606	Physical-Form 3697 3719	Solution for Injection
+T607	Physical-Form 3655 3679	Suspension for Injection
+T608	Target-Species 2287 2290	Cow
+T609	Target-Species 2335 2338	Cow
+T610	Target-Species 4496 4499	Cow
+T611	Target-Species 5328 5331	Cow
+T612	Physical-Form 4452 4477	Premix for Medicated Feed
+T613	Sub-Brand 4441 4444	200
+R169	Brand-Sub Arg1:T282 Arg2:T613	
+T614	Physical-Form 4445 4451	Powder

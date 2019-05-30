@@ -41,6 +41,12 @@
     <None Update="TestFiles\TestSPCParser\WC500067567.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TestFiles\TestStandoffImport\vmdPIDantimicrobials1.ann">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestFiles\TestStandoffImport\vmdPIDantimicrobials1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TestFiles\TestWordConverter\SPC_91079.DOC">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
