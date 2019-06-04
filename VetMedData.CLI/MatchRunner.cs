@@ -18,8 +18,7 @@ namespace VetMedData.CLI
         private const string usage = @"match [fileToMatch]
 match explainmatch [inputString] [refVMNo]
 match explain [productName] [commaSeparatedSpeciesList]
-match semantic [fileToMatch] [pathToBratFolder]";
-
+match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]";
 
         internal static void Match(string[] args)
         {
@@ -43,17 +42,19 @@ match semantic [fileToMatch] [pathToBratFolder]";
                         case "explain":
                             Explain(args[1], args[2]);
                             return;
-                        case "semantic":
-                            if (File.Exists(args[2]) && Directory.Exists(args[3]))
-                            {
-                                SemanticallyMatchFile(args[2], args[3]);
-                                return;
-                            }
-
-                            Console.WriteLine("fileToMatch or pathToBratFolder not found");
-                            break;
                         default:
                             break;
+                    }
+                    break;
+                case 5:
+                    if (args[1].Equals("semantic", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        if (File.Exists(args[2]) && Directory.Exists(args[3]))
+                        {
+                            SemanticallyMatchFile(args[2], args[3],args[4]);
+                            return;
+                        }
+                        Console.WriteLine("fileToMatch or pathToBratFolder not found");
                     }
                     break;
                 default:
@@ -63,8 +64,19 @@ match semantic [fileToMatch] [pathToBratFolder]";
             Console.WriteLine(usage);
         }
         
-        internal static void SemanticallyMatchFile(string pathToInputFile, string pathToBratFolder)
+        internal static void SemanticallyMatchFile(string pathToInputFile, string pathToBratFolder, string commaSeparatedWeights)
         {
+            try
+            {
+                var weights = commaSeparatedWeights.Split(',').Select(double.Parse);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error parsing weights");
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
 
         internal static void MatchFile(string pathToInputFile)

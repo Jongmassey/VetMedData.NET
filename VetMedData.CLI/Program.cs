@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using VetMedData.NET.Model;
 using VetMedData.NET.Util;
@@ -38,7 +37,6 @@ namespace VetMedData.CLI
             Console.ReadLine();
         }
 
-
         internal static void PrintPIDProperty(string propName)
         {
             var pidProperties = typeof(VMDPID).GetProperties();
@@ -59,9 +57,8 @@ namespace VetMedData.CLI
             }
             catch (Exception)
             {
-                Console.WriteLine($"Property {propName} not found in VMDPID");
+                Console.WriteLine($"Property {propName} not found in VMD PID");
             }
         }
-
     }
 }
