@@ -9,6 +9,37 @@ namespace VetMedData.NET.Util
     public static class StandoffImport
     {
         /// <summary>
+        /// Parses brat annotation.conf file and extracts the entities section
+        /// </summary>
+        /// <param name="pathToAnnotationConf">path to annotation.conf file</param>
+        /// <returns>Entities defined within file</returns>
+        public static IEnumerable<string> GetEntitiesFromConfig(string pathToAnnotationConf)
+        {
+            var outList = new List<string>();
+
+            var confLines = File.ReadAllLines(pathToAnnotationConf);
+            var entitySection = false;
+            foreach (var confLine in confLines)
+            {
+                var ln = confLine.Trim();
+
+                var entitySectionStart =
+                    ln.Equals("[entities]", StringComparison.InvariantCultureIgnoreCase);
+                var otherSectionStart = !entitySectionStart && ln.StartsWith('[') && ln.EndsWith(']');
+
+                entitySection = !otherSectionStart && (entitySection || entitySectionStart);
+
+                if (!entitySectionStart && entitySection && !ln.StartsWith('#') && !string.IsNullOrWhiteSpace(ln))
+                {
+                    outList.Add(ln);
+                }
+            }
+
+            return outList;
+        }
+
+
+        /// <summary>
         /// Parses Brat standoff <see href="http://brat.nlplab.org/standoff.html"/> format files.
         /// Expects pair of identically-named .txt and .ann files
         /// </summary>

@@ -1,0 +1,921 @@
+T1	Brand 0 8	Marbocyl
+T2	Sub-Brand 9 11	SA
+R1	Brand-Sub Arg1:T1 Arg2:T2
+T3	Concentration 12 15	200
+T4	Unit 16 18	mg
+R2	Concentration-Unit Arg1:T3 Arg2:T4
+T5	Brand 65 73	Vetremox
+T6	Concentration 79 82	100
+T7	Unit 82 87	% w/w
+R3	Concentration-Unit Arg1:T6 Arg2:T7
+T8	Brand 116 124	Clamoxyl
+T9	Concentration 137 140	150
+T10	Unit 141 146	mg/ml
+R4	Concentration-Unit Arg1:T9 Arg2:T10
+T11	Duration-of-Action 125 136	Long Acting
+T12	Brand 172 180	Cephorum
+T13	Concentration 181 184	250
+T14	Unit 185 187	mg
+R5	Concentration-Unit Arg1:T13 Arg2:T14
+T15	Brand 217 230	Linco-Spectin
+T16	Concentration 240 245	444.7
+T17	Unit 246 250	mg/g
+R6	Concentration-Unit Arg1:T16 Arg2:T17
+T18	Brand 306 313	Orbenin
+T19	Concentration 322 325	500
+T20	Unit 326 328	mg
+R7	Concentration-Unit Arg1:T19 Arg2:T20
+T21	Lactation-Phase 314 321	Dry Cow
+T22	Brand 353 361	Antirobe
+T23	Concentration 371 374	150
+T24	Unit 375 377	mg
+R8	Concentration-Unit Arg1:T23 Arg2:T24
+T25	Brand 378 386	Antirobe
+T26	Concentration 396 398	75
+T27	Unit 399 401	mg
+R9	Concentration-Unit Arg1:T26 Arg2:T27
+T28	Brand 402 410	Florocol
+T29	Concentration 446 449	500
+T30	Unit 449 453	mg/g
+R10	Concentration-Unit Arg1:T29 Arg2:T30
+T31	Brand 474 481	Excenel
+T32	Concentration 482 484	50
+T33	Unit 485 490	mg/ml
+R11	Concentration-Unit Arg1:T32 Arg2:T33
+T34	Brand 533 540	Excenel
+T35	Sub-Brand 541 546	Flow,
+R12	Brand-Sub Arg1:T34 Arg2:T35
+T36	Concentration 547 549	50
+T37	Unit 550 555	mg/ml
+R13	Concentration-Unit Arg1:T36 Arg2:T37
+T38	Brand 602 611	Metricure
+T39	Concentration 612 615	500
+T40	Unit 616 618	mg
+R14	Concentration-Unit Arg1:T39 Arg2:T40
+T41	Brand 643 651	Pulmotil
+T42	Sub-Brand 652 654	AC
+R15	Brand-Sub Arg1:T41 Arg2:T42
+T43	Concentration 655 658	250
+T44	Unit 659 664	mg/ml
+R16	Concentration-Unit Arg1:T43 Arg2:T44
+T45	Brand 738 746	Albiotic
+T46	Concentration 747 750	330
+T47	Unit 751 753	mg
+R17	Concentration-Unit Arg1:T46 Arg2:T47
+T48	Concentration 756 759	100
+T49	Unit 760 762	mg
+R18	Concentration-Unit Arg1:T48 Arg2:T49
+T50	Brand 785 792	Hexasol
+T51	Duration-of-Action 793 795	LA
+T52	Brand 830 837	Mamyzin
+T53	Concentration 838 843	269.5
+T54	Unit 843 848	mg/ml
+R19	Concentration-Unit Arg1:T53 Arg2:T54
+T55	Brand 908 916	Clinacin
+T56	Concentration 917 919	75
+T57	Unit 920 922	mg
+R20	Concentration-Unit Arg1:T56 Arg2:T57
+T58	Brand 931 939	Cyclosol
+T59	Concentration 944 947	200
+T60	Unit 948 953	mg/ml
+R21	Concentration-Unit Arg1:T59 Arg2:T60
+T61	Duration-of-Action 940 943	LA,
+T62	Brand 977 987	Amoxicure,
+T63	Concentration 988 990	30
+T64	Unit 990 995	% w/w
+R22	Concentration-Unit Arg1:T63 Arg2:T64
+T65	Brand 1021 1034	Clinagel-Vet,
+T66	Concentration 1046 1049	0.3
+T67	Unit 1050 1055	% w/w
+R23	Concentration-Unit Arg1:T66 Arg2:T67
+T68	Brand 1064 1073	Lincoject
+T69	Concentration 1074 1076	10
+T70	Unit 1076 1081	% w/v
+R24	Concentration-Unit Arg1:T69 Arg2:T70
+T71	Brand 1105 1111	Econor
+T72	Concentration 1112 1114	50
+T73	Unit 1114 1116	% 
+R25	Concentration-Unit Arg1:T72 Arg2:T73
+T74	Brand 1151 1159	Noroclav
+T75	Brand 1190 1196	Econor
+T76	Concentration 1197 1199	10
+T77	Unit 1199 1201	% 
+R26	Concentration-Unit Arg1:T76 Arg2:T77
+T78	Brand 1248 1257	Nafpenzal
+T79	Lactation-Phase 1258 1265	Dry Cow
+T80	Brand 1266 1272	Otomax
+T81	Brand 1295 1303	Noroclav
+T82	Lactation-Phase 1304 1317	Lactating Cow
+T83	Brand 1342 1351	Trimacare
+T84	Brand 1372 1378	Pirsue
+T85	Concentration 1379 1380	5
+T86	Unit 1381 1386	mg/ml
+R27	Concentration-Unit Arg1:T85 Arg2:T86
+T87	Brand 1420 1428	Antirobe
+T88	Concentration 1438 1441	300
+T89	Unit 1442 1444	mg
+R28	Concentration-Unit Arg1:T88 Arg2:T89
+T90	Brand 1445 1453	Clinacin
+T91	Concentration 1454 1457	150
+T92	Unit 1458 1460	mg
+R29	Concentration-Unit Arg1:T91 Arg2:T92
+T93	Brand 1469 1477	Clinacin
+T94	Concentration 1478 1480	25
+T95	Unit 1481 1483	mg
+R30	Concentration-Unit Arg1:T94 Arg2:T95
+T96	Brand 1492 1499	Aurizon
+T97	Brand 1522 1530	Noroclav
+T98	Concentration 1531 1533	50
+T99	Unit 1534 1536	mg
+R31	Concentration-Unit Arg1:T98 Arg2:T99
+T100	Brand 1563 1571	Noroclav
+T101	Concentration 1572 1575	250
+T102	Unit 1576 1578	mg
+R32	Concentration-Unit Arg1:T101 Arg2:T102
+T103	Brand 1596 1603	Advocin
+T104	Sub-Brand 1604 1607	180
+R33	Brand-Sub Arg1:T103 Arg2:T104
+T106	Unit 1613 1618	mg/ml
+T107	Brand 1654 1661	Nisamox
+T108	Concentration 1662 1664	50
+T109	Unit 1665 1667	mg
+R35	Concentration-Unit Arg1:T108 Arg2:T109
+T110	Brand 1694 1701	Nisamox
+T111	Concentration 1702 1705	250
+T112	Unit 1706 1708	mg
+R36	Concentration-Unit Arg1:T111 Arg2:T112
+T113	Brand 1726 1734	Synuclav
+T114	Concentration 1735 1737	50
+T115	Unit 1738 1740	mg
+R37	Concentration-Unit Arg1:T114 Arg2:T115
+T116	Brand 1767 1775	Synuclav
+T117	Concentration 1776 1779	250
+T118	Unit 1780 1782	mg
+R38	Concentration-Unit Arg1:T117 Arg2:T118
+T119	Brand 1800 1808	Synuclav
+T120	Brand 1834 1843	Nisinject
+T121	Brand 1869 1877	Marbocyl
+T122	Sub-Brand 1878 1879	P
+R39	Brand-Sub Arg1:T121 Arg2:T122
+T123	Concentration 1880 1881	5
+T124	Unit 1882 1884	mg
+R40	Concentration-Unit Arg1:T123 Arg2:T124
+T125	Brand 1892 1900	Marbocyl
+T126	Sub-Brand 1901 1902	P
+R41	Brand-Sub Arg1:T125 Arg2:T126
+T127	Concentration 1903 1905	20
+T128	Unit 1906 1908	mg
+R42	Concentration-Unit Arg1:T127 Arg2:T128
+T129	Brand 1916 1924	Marbocyl
+T130	Sub-Brand 1925 1926	P
+R43	Brand-Sub Arg1:T129 Arg2:T130
+T131	Concentration 1927 1929	80
+T132	Unit 1930 1932	mg
+R44	Concentration-Unit Arg1:T131 Arg2:T132
+T133	Brand 1940 1946	Nuflor
+T134	Concentration 1953 1956	300
+T135	Unit 1957 1962	mg/ml
+R45	Concentration-Unit Arg1:T134 Arg2:T135
+T136	Brand 1986 1994	Ampicare
+T137	Concentration 1995 1998	250
+T138	Unit 1999 2001	mg
+R46	Concentration-Unit Arg1:T137 Arg2:T138
+T139	Brand 2016 2026	Amoxycare,
+T140	Concentration 2027 2030	250
+T141	Unit 2031 2033	mg
+R47	Concentration-Unit Arg1:T140 Arg2:T141
+T142	Brand 2049 2055	Stabox
+T143	Concentration 2056 2058	50
+T144	Unit 2058 2063	% w/w
+R48	Concentration-Unit Arg1:T143 Arg2:T144
+T145	Brand 2098 2103	Cyclo
+T146	Concentration 2133 2137	2.45
+T147	Unit 2137 2142	% w/w
+R49	Concentration-Unit Arg1:T146 Arg2:T147
+T148	Brand 2199 2208	Coliscour
+T149	Concentration 2244 2245	2
+T150	Unit 2246 2252	MIU/ml
+R50	Concentration-Unit Arg1:T149 Arg2:T150
+T151	Brand 2253 2263	Octacillin
+T152	Concentration 2264 2267	697
+T153	Unit 2268 2272	mg/g
+R51	Concentration-Unit Arg1:T152 Arg2:T153
+T154	Brand 2319 2328	Combiclav
+T155	Brand 2354 2363	Combiclav
+T156	Lactation-Phase 2364 2377	Lactating Cow
+T157	Brand 2402 2410	Aivlosin
+T158	Concentration 2411 2415	42.5
+T159	Unit 2416 2420	mg/g
+R52	Concentration-Unit Arg1:T158 Arg2:T159
+T160	Brand 2465 2476	Clavaseptin
+T161	Concentration 2477 2479	50
+T162	Unit 2480 2482	mg
+R53	Concentration-Unit Arg1:T161 Arg2:T162
+T163	Brand 2519 2530	Clavaseptin
+T164	Concentration 2531 2534	250
+T165	Unit 2535 2537	mg
+R54	Concentration-Unit Arg1:T164 Arg2:T165
+T166	Brand 2565 2576	Clavaseptin
+T167	Concentration 2577 2580	500
+T168	Unit 2581 2583	mg
+R55	Concentration-Unit Arg1:T167 Arg2:T168
+T169	Brand 2611 2618	Draxxin
+T170	Concentration 2619 2622	100
+T171	Unit 2623 2628	mg/ml
+R56	Concentration-Unit Arg1:T170 Arg2:T171
+T172	Brand 2679 2686	Aurofac
+T173	Concentration 2696 2699	100
+T174	Unit 2700 2704	mg/g
+R57	Concentration-Unit Arg1:T173 Arg2:T174
+T175	Brand 2740 2746	Naxcel
+T176	Concentration 2747 2750	100
+T177	Unit 2751 2756	mg/ml
+R58	Concentration-Unit Arg1:T176 Arg2:T177
+T178	Brand 2791 2798	Enroxil
+T179	Concentration 2799 2802	100
+T180	Unit 2803 2808	mg/ml
+R59	Concentration-Unit Arg1:T179 Arg2:T180
+T181	Brand 2852 2859	Enroxil
+T182	Concentration 2860 2862	50
+T183	Unit 2863 2868	mg/ml
+R60	Concentration-Unit Arg1:T182 Arg2:T183
+T184	Brand 2918 2925	Enroxil
+T185	Concentration 2926 2929	100
+T186	Unit 2930 2935	mg/ml
+R61	Concentration-Unit Arg1:T185 Arg2:T186
+T187	Brand 2975 2983	Convenia
+T188	Concentration 2984 2986	80
+T189	Unit 2987 2992	mg/ml
+R62	Concentration-Unit Arg1:T188 Arg2:T189
+T190	Brand 3057 3064	Bilosin
+T191	Concentration 3065 3068	200
+T192	Unit 3068 3073	mg/ml
+R63	Concentration-Unit Arg1:T191 Arg2:T192
+T193	Brand 3098 3106	Cephorum
+T194	Concentration 3107 3110	500
+T195	Unit 3111 3113	mg
+R64	Concentration-Unit Arg1:T194 Arg2:T195
+T196	Brand 3143 3153	Cephaguard
+T197	Concentration 3157 3160	150
+T198	Unit 3161 3163	mg
+R65	Concentration-Unit Arg1:T197 Arg2:T198
+T199	Lactation-Phase 3154 3156	DC
+T200	Brand 3186 3194	Rilexine
+T201	Concentration 3195 3197	75
+T202	Unit 3198 3200	mg
+R66	Concentration-Unit Arg1:T201 Arg2:T202
+T203	Brand 3227 3235	Rilexine
+T204	Concentration 3236 3239	600
+T205	Unit 3240 3242	mg
+R67	Concentration-Unit Arg1:T204 Arg2:T205
+T206	Brand 3260 3268	Rilexine
+T207	Concentration 3269 3272	300
+T208	Unit 3273 3275	mg
+R68	Concentration-Unit Arg1:T207 Arg2:T208
+T209	Brand 3293 3301	Noroclav
+T210	Concentration 3302 3305	500
+T211	Unit 3306 3308	mg
+R69	Concentration-Unit Arg1:T210 Arg2:T211
+T212	Brand 3336 3343	Tiamvet
+T213	Concentration 3353 3357	12.5
+T214	Unit 3357 3362	% w/v
+R70	Concentration-Unit Arg1:T213 Arg2:T214
+T215	Brand 3403 3410	Nisamox
+T216	Concentration 3429 3432	500
+T217	Unit 3433 3435	mg
+R71	Concentration-Unit Arg1:T216 Arg2:T217
+T218	Brand 3445 3452	Fenflor
+T219	Concentration 3453 3456	300
+T220	Unit 3457 3462	mg/ml
+R72	Concentration-Unit Arg1:T219 Arg2:T220
+T221	Brand 3497 3504	Fenflor
+T222	Concentration 3505 3508	300
+T223	Unit 3509 3514	mg/ml
+R73	Concentration-Unit Arg1:T222 Arg2:T223
+T224	Brand 3547 3554	Therios
+T225	Concentration 3555 3558	300
+T226	Unit 3559 3561	mg
+R74	Concentration-Unit Arg1:T225 Arg2:T226
+T227	Brand 3589 3597	Synuclav
+T228	Concentration 3616 3619	500
+T229	Unit 3620 3622	mg
+R75	Concentration-Unit Arg1:T228 Arg2:T229
+T230	Brand 3632 3639	Bimamix
+T231	Brand 3667 3674	Enroxil
+T232	Sub-Brand 3675 3678	Max
+R76	Brand-Sub Arg1:T231 Arg2:T232
+T233	Concentration 3679 3682	100
+T234	Unit 3683 3688	mg/ml
+R77	Concentration-Unit Arg1:T233 Arg2:T234
+T235	Brand 3723 3730	Resflor
+T236	Concentration 3735 3739	16.5
+T237	Unit 3740 3745	mg/ml
+R78	Concentration-Unit Arg1:T236 Arg2:T237
+T238	Brand 3780 3790	Phenoxypen
+T239	Concentration 3813 3816	325
+T240	Unit 3817 3821	mg/g
+R79	Concentration-Unit Arg1:T239 Arg2:T240
+T241	Brand 3860 3868	Denagard
+T242	Concentration 3869 3871	10
+T243	Unit 3871 3876	% w/w
+R80	Concentration-Unit Arg1:T242 Arg2:T243
+T244	Brand 3952 3962	Equibactin
+T245	Sub-Brand 3963 3967	Vet.
+R81	Brand-Sub Arg1:T244 Arg2:T245
+T246	Concentration 3969 3972	333
+T247	Unit 3973 3977	mg/g
+R82	Concentration-Unit Arg1:T246 Arg2:T247
+T248	Concentration 3980 3982	67
+T249	Unit 3983 3987	mg/g
+R83	Concentration-Unit Arg1:T248 Arg2:T249
+T250	Brand 4011 4019	Posatex,
+T251	Brand 4050 4058	Selectan
+T252	Concentration 4059 4062	300
+T253	Unit 4063 4068	mg/ml
+R84	Concentration-Unit Arg1:T252 Arg2:T253
+T254	Brand 4113 4122	Mastiplan
+T255	Concentration 4127 4130	300
+T256	Unit 4131 4133	mg
+R85	Concentration-Unit Arg1:T255 Arg2:T256
+T257	Concentration 4134 4136	20
+T258	Unit 4137 4139	mg
+R86	Concentration-Unit Arg1:T257 Arg2:T258
+T259	Lactation-Phase 4123 4126	LC,
+T260	Lactation-Phase 4194 4207	Lactating Cow
+T261	Brand 4210 4216	Nuflor
+T262	Concentration 4217 4219	40
+T263	Unit 4220 4224	mg/g
+R87	Concentration-Unit Arg1:T262 Arg2:T263
+T264	Brand 4271 4280	Clavucill
+T265	Concentration 4281 4283	40
+T266	Unit 4284 4286	mg
+R88	Concentration-Unit Arg1:T265 Arg2:T266
+T267	Concentration 4287 4289	10
+T268	Unit 4290 4292	mg
+R89	Concentration-Unit Arg1:T267 Arg2:T268
+T269	Brand 4320 4329	Clavucill
+T270	Concentration 4330 4333	200
+T271	Unit 4334 4336	mg
+R90	Concentration-Unit Arg1:T270 Arg2:T271
+T272	Concentration 4337 4339	50
+T273	Unit 4340 4342	mg
+R91	Concentration-Unit Arg1:T272 Arg2:T273
+T274	Brand 4361 4370	Clavucill
+T275	Concentration 4371 4374	400
+T276	Unit 4375 4377	mg
+R92	Concentration-Unit Arg1:T275 Arg2:T276
+T277	Concentration 4378 4381	100
+T278	Unit 4382 4384	mg
+R93	Concentration-Unit Arg1:T277 Arg2:T278
+T279	Brand 4403 4410	Malaseb
+T280	Brand 4437 4444	Aurofac
+T281	Concentration 4454 4457	250
+T282	Unit 4458 4462	mg/g
+R94	Concentration-Unit Arg1:T281 Arg2:T282
+T283	Brand 4498 4505	Zactran
+T284	Concentration 4506 4509	150
+T285	Unit 4510 4515	mg/ml
+R95	Concentration-Unit Arg1:T284 Arg2:T285
+T286	Brand 4566 4572	Powdox
+T287	Concentration 4573 4576	100
+T288	Unit 4577 4582	mg/ml
+R96	Concentration-Unit Arg1:T287 Arg2:T288
+T289	Brand 4645 4653	Vetmulin
+T290	Concentration 4654 4657	450
+T291	Unit 4658 4662	mg/g
+R97	Concentration-Unit Arg1:T290 Arg2:T291
+T292	Brand 4729 4736	Karidox
+T293	Concentration 4737 4740	100
+T294	Unit 4741 4746	mg/ml
+R98	Concentration-Unit Arg1:T293 Arg2:T294
+T295	Brand 4809 4817	Tilmovet
+T296	Concentration 4818 4821	250
+T297	Unit 4822 4827	mg/ml
+R99	Concentration-Unit Arg1:T296 Arg2:T297
+T298	Brand 4897 4906	Chloromed
+T299	Concentration 4907 4910	150
+T300	Unit 4911 4915	mg/g
+R100	Concentration-Unit Arg1:T299 Arg2:T300
+T301	Brand 4962 4971	Chloromed
+T302	Concentration 4972 4975	150
+T303	Unit 4976 4980	mg/g
+R101	Concentration-Unit Arg1:T302 Arg2:T303
+T304	Brand 5004 5014	Animedazon
+T305	Concentration 5022 5026	2.45
+T306	Unit 5027 5032	% w/w
+R102	Concentration-Unit Arg1:T305 Arg2:T306
+T307	Brand 5087 5095	Tilmovet
+T308	Concentration 5096 5099	200
+T309	Unit 5100 5104	g/kg
+R103	Concentration-Unit Arg1:T308 Arg2:T309
+T310	Brand 5161 5169	Tilmovet
+T311	Concentration 5170 5173	100
+T312	Unit 5174 5178	g/kg
+R104	Concentration-Unit Arg1:T311 Arg2:T312
+T313	Brand 5235 5240	Xeden
+T314	Concentration 5241 5243	15
+T315	Unit 5244 5246	mg
+R105	Concentration-Unit Arg1:T314 Arg2:T315
+T316	Brand 5263 5268	Xeden
+T317	Concentration 5269 5271	50
+T318	Unit 5272 5274	mg
+R106	Concentration-Unit Arg1:T317 Arg2:T318
+T319	Brand 5291 5296	Xeden
+T320	Concentration 5297 5300	150
+T321	Unit 5301 5303	mg
+R107	Concentration-Unit Arg1:T320 Arg2:T321
+T322	Brand 5320 5325	Enrox
+T323	Concentration 5334 5336	15
+T324	Unit 5337 5339	mg
+R108	Concentration-Unit Arg1:T323 Arg2:T324
+T325	Brand 5366 5371	Enrox
+T326	Concentration 5380 5382	50
+T327	Unit 5383 5385	mg
+R109	Concentration-Unit Arg1:T326 Arg2:T327
+T328	Brand 5403 5408	Enrox
+T329	Concentration 5417 5420	150
+T330	Unit 5421 5423	mg
+R110	Concentration-Unit Arg1:T329 Arg2:T330
+T331	Brand 5441 5447	Nuflor
+T332	Sub-Brand 5448 5456	Minidose
+R111	Brand-Sub Arg1:T331 Arg2:T332
+T333	Concentration 5457 5460	450
+T334	Unit 5461 5466	mg/ml
+R112	Concentration-Unit Arg1:T333 Arg2:T334
+T335	Brand 5501 5510	Cephacare
+T336	Concentration 5519 5521	50
+T337	Unit 5522 5524	mg
+R113	Concentration-Unit Arg1:T336 Arg2:T337
+T338	Brand 5551 5560	Cephacare
+T339	Concentration 5569 5572	250
+T340	Unit 5573 5575	mg
+R114	Concentration-Unit Arg1:T339 Arg2:T340
+T341	Brand 5593 5602	Cephacare
+T342	Concentration 5611 5614	500
+T343	Unit 5615 5617	mg
+R115	Concentration-Unit Arg1:T342 Arg2:T343
+T344	Brand 5635 5643	Tilmovet
+T345	Concentration 5644 5646	40
+T346	Unit 5647 5651	g/kg
+R116	Concentration-Unit Arg1:T345 Arg2:T346
+T347	Brand 5708 5717	Pharmasin
+T348	Concentration 5718 5721	250
+T349	Unit 5722 5726	mg/g
+R117	Concentration-Unit Arg1:T348 Arg2:T349
+T350	Brand 5793 5802	Pharmasin
+T351	Concentration 5803 5806	100
+T352	Unit 5807 5811	mg/g
+R118	Concentration-Unit Arg1:T351 Arg2:T352
+T353	Brand 5878 5887	Pharmasin
+T354	Concentration 5888 5890	20
+T355	Unit 5891 5895	mg/g
+R119	Concentration-Unit Arg1:T354 Arg2:T355
+T356	Brand 5919 5927	Vetmulin
+T357	Concentration 5928 5931	100
+T358	Unit 5932 5936	g/kg
+R120	Concentration-Unit Arg1:T357 Arg2:T358
+T359	Brand 6012 6021	Powerflox
+T360	Concentration 6022 6024	50
+T361	Unit 6025 6030	mg/ml
+R121	Concentration-Unit Arg1:T360 Arg2:T361
+T362	Brand 6099 6108	Powerflox
+T363	Concentration 6109 6112	100
+T364	Unit 6113 6118	mg/ml
+R122	Concentration-Unit Arg1:T363 Arg2:T364
+T365	Brand 6175 6184	Shotaflor
+T366	Concentration 6185 6188	300
+T367	Unit 6189 6194	mg/ml
+R123	Concentration-Unit Arg1:T366 Arg2:T367
+T368	Brand 6242 6251	Shotaflor
+T369	Concentration 6252 6255	300
+T370	Unit 6256 6261	mg/ml
+R124	Concentration-Unit Arg1:T369 Arg2:T370
+T371	Brand 6306 6314	Easotic,
+T372	Brand 6359 6367	Pulmodox
+T373	Concentration 6368 6371	100
+T374	Unit 6372 6376	mg/g
+R125	Concentration-Unit Arg1:T373 Arg2:T374
+T375	Brand 6421 6428	Therios
+T376	Concentration 6429 6432	750
+T377	Unit 6433 6435	mg
+R126	Concentration-Unit Arg1:T376 Arg2:T377
+T378	Brand 6463 6470	Perlium
+T379	Sub-Brand 6471 6479	Amoxival
+R127	Brand-Sub Arg1:T378 Arg2:T379
+T380	Concentration 6480 6483	100
+T381	Unit 6484 6488	mg/g
+R128	Concentration-Unit Arg1:T380 Arg2:T381
+T382	Brand 6533 6542	HydroDoxx
+T383	Concentration 6543 6546	500
+T384	Unit 6547 6551	mg/g
+R129	Concentration-Unit Arg1:T383 Arg2:T384
+T385	Brand 6607 6615	Coliplus
+T386	Concentration 6616 6625	2,000,000
+T387	Unit 6626 6631	IU/ml
+R130	Concentration-Unit Arg1:T386 Arg2:T387
+T388	Brand 6725 6734	Ubrolexin
+T389	Lactation-Phase 6763 6783	Lactating Dairy Cows
+T390	Brand 6784 6791	Cefenil
+T391	Concentration 6792 6794	50
+T392	Unit 6795 6800	mg/ml
+R131	Concentration-Unit Arg1:T391 Arg2:T392
+T393	Brand 6867 6876	Clavudale
+T394	Concentration 6877 6879	40
+T395	Unit 6880 6882	mg
+R132	Concentration-Unit Arg1:T394 Arg2:T395
+T396	Concentration 6885 6887	10
+T397	Unit 6888 6890	mg
+R133	Concentration-Unit Arg1:T396 Arg2:T397
+T398	Brand 6917 6926	Clavudale
+T399	Concentration 6927 6930	200
+T400	Unit 6931 6933	mg
+R134	Concentration-Unit Arg1:T399 Arg2:T400
+T401	Concentration 6936 6938	50
+T402	Unit 6939 6941	mg
+R135	Concentration-Unit Arg1:T401 Arg2:T402
+T403	Brand 6959 6968	Clavudale
+T404	Concentration 6969 6972	400
+T405	Unit 6973 6975	mg
+R136	Concentration-Unit Arg1:T404 Arg2:T405
+T406	Concentration 6978 6981	100
+T407	Unit 6982 6984	mg
+R137	Concentration-Unit Arg1:T406 Arg2:T407
+T408	Brand 7002 7009	Florkem
+T409	Concentration 7010 7013	300
+T410	Unit 7014 7019	mg/ml
+R138	Concentration-Unit Arg1:T409 Arg2:T410
+T411	Brand 7063 7070	Oxycare
+T412	Concentration 7071 7073	10
+T413	Unit 7073 7078	% w/v
+R139	Concentration-Unit Arg1:T412 Arg2:T413
+T414	Brand 7102 7114	Duphacycline
+T415	Concentration 7115 7117	10
+T416	Unit 7117 7122	% w/v
+R140	Concentration-Unit Arg1:T415 Arg2:T416
+T417	Brand 7146 7154	Aivlosin
+T418	Concentration 7155 7158	625
+T419	Unit 7159 7163	mg/g
+R141	Concentration-Unit Arg1:T418 Arg2:T419
+T420	Brand 7208 7217	Engemycin
+T421	Concentration 7225 7227	25
+T422	Unit 7228 7233	mg/ml
+R142	Concentration-Unit Arg1:T421 Arg2:T422
+T423	Brand 7290 7298	Vetmulin
+T424	Concentration 7299 7302	162
+T425	Unit 7303 7308	mg/ml
+R143	Concentration-Unit Arg1:T424 Arg2:T425
+T426	Target-Species 458 473	Atlantic Salmon
+T427	Physical-Form 362 370	Capsules
+T428	Physical-Form 387 395	Capsules
+T429	Physical-Form 42 64	Solution for Injection
+T430	Physical-Form 510 532	Solution for Injection
+T431	Physical-Form 796 818	Solution for Injection
+T432	Physical-Form 954 976	Solution for Injection
+T433	Physical-Form 1082 1104	Solution for Injection
+T434	Physical-Form 1620 1642	Solution for Injection
+T435	Physical-Form 1963 1985	Solution for Injection
+T436	Physical-Form 2629 2651	Solution for Injection
+T437	Physical-Form 2809 2831	Solution for Injection
+T438	Physical-Form 3016 3038	Solution for Injection
+T439	Physical-Form 2869 2891	Solution for Injection
+T440	Physical-Form 3075 3097	Solution for Injection
+T441	Physical-Form 3463 3485	Solution for Injection
+T442	Physical-Form 3515 3537	Solution for Injection
+T443	Physical-Form 3689 3711	Solution for Injection
+T444	Physical-Form 3746 3768	Solution for Injection
+T445	Physical-Form 4069 4091	Solution for Injection
+T446	Target-Species 4204 4208	Cows
+T447	Physical-Form 4516 4538	Solution for Injection
+T448	Physical-Form 5467 5489	Solution for Injection
+T449	Physical-Form 6031 6053	Solution for Injection
+T450	Physical-Form 6119 6141	Solution for Injection
+T451	Physical-Form 6195 6217	Solution for Injection
+T452	Physical-Form 6262 6284	Solution for Injection
+T453	Physical-Form 6824 6846	Solution for Injection
+T454	Physical-Form 7020 7042	Solution for Injection
+T456	Physical-Form 7079 7101	Solution for Injection
+T457	Physical-Form 7123 7145	Solution for Injection
+T458	Physical-Form 7309 7331	Solution for Injection
+T459	Physical-Form 147 171	Suspension for Injection
+T460	Physical-Form 557 581	Suspension for Injection
+T461	Brand 872 896	Suspension for Injection
+T462	Physical-Form 849 896	Powder and Solvent for Suspension for Injection
+T463	Physical-Form 19 64	Powder and Solvent for Solution for Injection
+T464	Physical-Form 491 532	Sterile Powder for Solution for Injection
+T465	Physical-Form 1809 1833	Suspension for Injection
+T466	Physical-Form 1844 1868	Suspension for Injection
+T467	Physical-Form 2329 2353	Suspension for Injection
+T468	Physical-Form 2757 2781	Suspension for Injection
+T469	Physical-Form 200 207	Tablets
+T470	Physical-Form 923 930	Tablets
+T471	Physical-Form 1355 1362	Tablets
+T472	Physical-Form 1461 1468	Tablets
+T473	Physical-Form 1484 1491	Tablets
+T474	Brand 1537 1544	Tablets
+T475	Physical-Form 1579 1586	Tablets
+T476	Physical-Form 1668 1675	Tablets
+T477	Physical-Form 1709 1716	Tablets
+T105	Concentration 1609 1612	180
+R34	Concentration-Unit Arg1:T105 Arg2:T106	
+T478	Physical-Form 1387 1408	Intramammary Solution
+T479	Physical-Form 1741 1748	Tablets
+T480	Physical-Form 1783 1790	Tablets
+T481	Physical-Form 1885 1891	Tablet
+T482	Physical-Form 1909 1915	Tablet
+T483	Physical-Form 1933 1939	Tablet
+T484	Target-Species 1947 1952	Swine
+T485	Physical-Form 2493 2500	Tablets
+T486	Physical-Form 2548 2555	Tablets
+T487	Physical-Form 2594 2601	Tablets
+T488	Physical-Form 2483 2492	Palatable
+R144	Physicallly-Equivalent Arg1:T488 Arg2:T485	
+T489	Physical-Form 188 207	Film-coated Tablets
+T490	Target-Species 212 216	Dogs
+T491	Target-Species 288 292	Pigs
+T492	Target-Species 297 305	Chickens
+T493	Sub-Brand 231 234	100
+T494	Concentration 236 239	222
+R145	Concentration-Unit Arg1:T494 Arg2:T17	
+T495	Physical-Form 329 352	Intramammary Suspension
+T496	Physical-Form 251 283	Powder for Use in Drinking Water
+T497	Physical-Form 411 445	Premix for Medicated Feeding Stuff
+T498	Target-Species 586 590	Pigs
+T499	Target-Species 595 601	Cattle
+T500	Physical-Form 619 642	Intrauterine Suspension
+T501	Physical-Form 665 720	Concentrate for Oral Solution for Use in Drinking Water
+T502	Physical-Form 665 705;724 737	Concentrate for Oral Solution for Use in Milk Replacer
+T503	Physical-Form 763 784	Intramammary Solution
+T504	Target-Species 823 829	Cattle
+T505	Target-Species 901 907	Cattle
+T506	Physical-Form 996 1020	Powder for Oral Solution
+T507	Active-Ingredient 1035 1045	Gentamicin
+R146	Active-Ingredient-Concentration Arg1:T507 Arg2:T66	
+T508	Physical-Form 1056 1063	Eye Gel
+T509	Target-Species 1146 1150	Pigs
+T510	Target-Species 1174 1180	Cattle
+T511	Target-Species 1185 1189	Dogs
+T512	Physical-Form 1160 1169	Injection
+T513	Physical-Form 1116 1141	Premix for Medicated Feed
+T514	Physical-Form 1201 1226	Premix for Medicated Feed
+T515	Target-Species 1231 1235	Pigs
+T516	Target-Species 1240 1247	Rabbits
+T517	Target-Species 1262 1265	Cow
+T518	Physical-Form 1273 1293	Ear Drops Suspension
+T519	Sub-Brand 1352 1354	80
+T520	Target-Species 1367 1371	Dogs
+T521	Target-Species 1413 1419	Cattle
+T522	Physical-Form 1318 1341	Intramammary Suspension
+T523	Physical-Form 1429 1437	Capsules
+T524	Physical-Form 1500 1509	Ear Drops
+T525	Physical-Form 1511 1521	Suspension
+T526	Target-Species 1549 1553	Dogs
+T527	Target-Species 1558 1562	Cats
+T528	Target-Species 1591 1595	Dogs
+T529	Target-Species 1647 1653	Cattle
+T530	Target-Species 1680 1684	Dogs
+T531	Target-Species 1689 1693	Cats
+T532	Target-Species 1721 1725	Dogs
+T533	Target-Species 1753 1757	Dogs
+T534	Target-Species 1762 1766	Cats
+T535	Target-Species 1795 1799	Dogs
+T536	Physical-Form 2002 2015	Hard Capsules
+T537	Physical-Form 2035 2048	Hard Capsules
+T538	Target-Species 2093 2097	Pigs
+T539	Physical-Form 2064 2088	Powder for Oral Solution
+T540	Target-Species 2176 2180	Pigs
+T541	Target-Species 2182 2187	Sheep
+T542	Target-Species 2192 2198	Cattle
+T543	Sub-Brand 2104 2109	Spray
+R147	Brand-Sub Arg1:T145 Arg2:T543	
+T544	Active-Ingredient 2111 2132	Chlortetracycline HCI
+R148	Active-Ingredient-Concentration Arg1:T544 Arg2:T146	
+T545	Physical-Form 2144 2159	Cutaneous Spray
+T546	Physical-Form 2144 2153;2161 2171	Cutaneous Suspension
+T547	Target-Species 2310 2318	Chickens
+T548	Physical-Form 2209 2222	Oral Solution
+T549	Active-Ingredient 2226 2243	Colistin Sulphate
+R149	Active-Ingredient-Concentration Arg1:T549 Arg2:T149	
+T550	Physical-Form 2273 2305	Powder for Use in Drinking Water
+T551	Physical-Form 2378 2401	Intramammary Suspension
+T552	Target-Species 2460 2464	Pigs
+T553	Physical-Form 2421 2455	Premix for Medicated Feeding Stuff
+T554	Target-Species 2505 2509	Dogs
+T555	Target-Species 2514 2518	Cats
+T556	Target-Species 2560 2564	Dogs
+T557	Target-Species 2606 2610	Dogs
+T558	Target-Species 2656 2662	Cattle
+T559	Target-Species 2664 2668	Pigs
+T560	Target-Species 2673 2678	Sheep
+T561	Brand 2687 2695;2705 2739	Granular Premix for Medicated Feeding Stuff
+T562	Target-Species 2786 2790	Pigs
+T563	Target-Species 2836 2842	Cattle
+T564	Target-Species 2847 2851	Pigs
+T565	Target-Species 2896 2902	Calves
+T566	Target-Species 2904 2908	Pigs
+T567	Target-Species 2913 2917	Dogs
+T568	Physical-Form 2936 2949	Oral Solution
+T569	Target-Species 2954 2962	Chickens
+T570	Target-Species 2967 2974	Turkeys
+T571	Physical-Form 2993 3011	Powder and Solvent
+T572	Target-Species 3043 3047	Dogs
+T573	Target-Species 3052 3056	Cats
+T574	Physical-Form 3114 3133	Film-coated Tablets
+T575	Target-Species 3138 3142	Dogs
+T576	Physical-Form 3164 3185	Intramammary Ointment
+T577	Physical-Form 3201 3208	Tablets
+T578	Physical-Form 3243 3250	Tablets
+T579	Physical-Form 3276 3283	Tablets
+T580	Physical-Form 3309 3326	Palatable Tablets
+T581	Target-Species 3213 3217	Dogs
+T582	Target-Species 3222 3226	Cats
+T583	Target-Species 3255 3259	Dogs
+T584	Target-Species 3288 3292	Dogs
+T585	Target-Species 3331 3335	Dogs
+T586	Physical-Form 3363 3402	Oral Solution for use in Drinking Water
+T587	Target-Species 3440 3444	Dogs
+T588	Physical-Form 3411 3428	Palatable Tablets
+T589	Target-Species 3490 3496	Cattle
+T590	Target-Species 3542 3546	Pigs
+T591	Physical-Form 3562 3579	Palatable Tablets
+T592	Physical-Form 3598 3615	Palatable Tablets
+T593	Target-Species 3584 3588	Dogs
+T594	Target-Species 3627 3631	Dogs
+T595	Physical-Form 3640 3655	Oral Suspension
+T596	Target-Species 3660 3666	Calves
+T597	Target-Species 3716 3722	Cattle
+T598	Concentration 3731 3734	300
+R150	Concentration-Unit Arg1:T598 Arg2:T237	
+T599	Target-Species 3773 3779	Cattle
+T600	Physical-Form 3791 3811	Water Soluble Powder
+T601	Physical-Form 3822 3846	Powder for Oral Solution
+R151	Physicallly-Equivalent Arg1:T600 Arg2:T601	
+T602	Target-Species 3851 3859	Chickens
+T603	Target-Species 3916 3920	Pigs
+T604	Target-Species 3922 3930	Chickens
+T605	Target-Species 3932 3939	Turkeys
+T606	Target-Species 3944 3951	Rabbits
+T607	Physical-Form 3877 3911	Premix for Medicated Feeding Stuff
+T608	Physical-Form 3989 4010	Oral Paste for Horses
+T609	Physical-Form 4020 4029	Ear Drops
+T610	Target-Species 4045 4049	Dogs
+T611	Target-Species 4096 4102	Cattle
+T612	Target-Species 4107 4112	Swine
+T613	Active-Ingredient 4141 4150	Cefapirin
+R152	Active-Ingredient-Concentration Arg1:T613 Arg2:T255	
+T614	Active-Ingredient 4151 4163	Prednisolone
+R153	Active-Ingredient-Concentration Arg1:T614 Arg2:T257	
+T615	Physical-Form 4166 4189	Intramammary Suspension
+T616	Target-Species 4264 4269	Swine
+T617	Physical-Form 4225 4259	Premix for Medicated Feeding Stuff
+T618	Physical-Form 4294 4301	Tablets
+T619	Physical-Form 4344 4351	Tablets
+T620	Physical-Form 4386 4393	Tablets
+T621	Physical-Form 4411 4418	Shampoo
+T622	Target-Species 4423 4427	Dogs
+T623	Target-Species 4432 4436	Cats
+T624	Target-Species 4398 4402	Dogs
+T625	Target-Species 4356 4360	Dogs
+T626	Target-Species 4306 4310	Dogs
+T627	Target-Species 4315 4319	Cats
+T628	Physical-Form 4463 4497	Premix for Medicated Feeding Stuff
+T629	Target-Species 4543 4549	cattle
+T630	Target-Species 4551 4556	sheep
+T631	Target-Species 4561 4565	pigs
+T632	Target-Species 4627 4635	Chickens
+T633	Target-Species 4640 4644	Pigs
+T634	Target-Species 4702 4706	Pigs
+T635	Target-Species 4708 4716	Chickens
+T636	Target-Species 4721 4728	Turkeys
+T637	Physical-Form 4583 4596	Oral Solution
+T638	Physical-Form 4588 4622	Solution for Use in Drinking Water
+T639	Physical-Form 4663 4697	Granules for Use in Drinking Water
+T640	Target-Species 4791 4799	Chickens
+T641	Target-Species 4804 4808	Pigs
+T642	Physical-Form 4747 4760	Oral Solution
+T643	Physical-Form 4752 4786	Solution for Use in Drinking Water
+T644	Target-Species 4862 4866	Pigs
+T645	Target-Species 4868 4876	Chickens
+T646	Target-Species 4878 4885	Turkeys
+T647	Target-Species 4890 4896	Calves
+T648	Target-Species 4955 4961	Calves
+T649	Physical-Form 4828 4857	Concentrate for Oral Solution
+T650	Physical-Form 4916 4950	Premix for Medicated Feeding Stuff
+T651	Physical-Form 4981 4992	Oral Powder
+T652	Target-Species 4997 5003	Calves
+T653	Physical-Form 5033 5048	Cutaneous Spray
+T654	Physical-Form 5033 5042;5049 5059	Cutaneous Suspension
+T655	Target-Species 5064 5070	Cattle
+T656	Target-Species 5072 5077	Sheep
+T657	Target-Species 5082 5086	Pigs
+T658	Target-Species 5144 5148	Pigs
+T659	Target-Species 5153 5160	Rabbits
+T660	Target-Species 5218 5222	Pigs
+T661	Target-Species 5227 5234	Rabbits
+T662	Physical-Form 5105 5139	Premix for Medicated Feeding Stuff
+T663	Physical-Form 5179 5213	Premix for Medicated Feeding Stuff
+T664	Physical-Form 5247 5253	Tablet
+T665	Physical-Form 5275 5281	Tablet
+T666	Physical-Form 5304 5310	Tablet
+T667	Target-Species 5258 5262	Cats
+T668	Target-Species 5286 5290	Dogs
+T669	Target-Species 5315 5319	Dogs
+T670	Target-Species 5352 5356	Dogs
+T671	Sub-Brand 5326 5333	Flavour
+T672	Sub-Brand 5372 5379	Flavour
+T673	Sub-Brand 5409 5416	Flavour
+R154	Brand-Sub Arg1:T322 Arg2:T671	
+R155	Brand-Sub Arg1:T325 Arg2:T672	
+R156	Brand-Sub Arg1:T328 Arg2:T673	
+T674	Target-Species 5361 5365	Cats
+T675	Physical-Form 5340 5347	Tablets
+T676	Physical-Form 5386 5393	Tablets
+T677	Physical-Form 5424 5431	Tablets
+T678	Target-Species 5398 5402	Dogs
+T679	Target-Species 5436 5440	Dogs
+T680	Target-Species 5494 5500	Cattle
+T681	Physical-Form 5525 5532	Tablets
+T682	Sub-Brand 5511 5518	Flavour
+T683	Sub-Brand 5561 5568	Flavour
+T684	Sub-Brand 5603 5610	Flavour
+R157	Brand-Sub Arg1:T335 Arg2:T682	
+R158	Brand-Sub Arg1:T338 Arg2:T683	
+R159	Brand-Sub Arg1:T341 Arg2:T684	
+T685	Physical-Form 5576 5583	Tablets
+T686	Physical-Form 5618 5625	Tablets
+T687	Target-Species 5537 5541	Cats
+T688	Target-Species 5546 5550	Dogs
+T689	Target-Species 5588 5592	Dogs
+T690	Target-Species 5630 5634	Dogs
+T691	Target-Species 5691 5695	Pigs
+T692	Target-Species 5700 5707	Rabbits
+T693	Target-Species 5766 5770	Pigs
+T694	Target-Species 5772 5780	Broilers
+T695	Target-Species 5785 5792	Pullets
+T696	Target-Species 5851 5855	Pigs
+T697	Target-Species 5857 5865	Broilers
+T698	Target-Species 5870 5877	Pullets
+T699	Target-Species 5914 5918	Pigs
+T700	Active-Ingredient 6086 6098	Enrofloxacin
+R160	Active-Ingredient-Concentration Arg1:T700 Arg2:T360	
+T701	Target-Species 6081 6085	Cats
+T702	Target-Species 6072 6076	Dogs
+T703	Target-Species 6066 6070	Pigs
+T704	Target-Species 6058 6064	Cattle
+T705	Active-Ingredient 6162 6174	Enrofloxacin
+R161	Active-Ingredient-Concentration Arg1:T705 Arg2:T363	
+T706	Active-Ingredient 6230 6241	Florfenicol
+R162	Active-Ingredient-Concentration Arg1:T706 Arg2:T366	
+T707	Active-Ingredient 6294 6305	Florfenicol
+R163	Active-Ingredient-Concentration Arg1:T707 Arg2:T369	
+T708	Target-Species 6146 6152	Cattle
+T709	Target-Species 6157 6161	Pigs
+T710	Target-Species 6222 6228	Cattle
+T711	Target-Species 6289 6293	Pigs
+T712	Target-Species 5976 5980	Pigs
+T713	Target-Species 5982 5990	Chickens
+T714	Target-Species 5992 5999	Turkeys
+T715	Target-Species 6004 6011	Rabbits
+T716	Physical-Form 5937 5971	Premix for Medicated Feeding Stuff
+T717	Physical-Form 5896 5909	Oral Granules
+T718	Physical-Form 5812 5846	Premix for Medicated Feeding Stuff
+T719	Physical-Form 5727 5761	Premix for Medicated Feeding Stuff
+T720	Physical-Form 5652 5686	Premix for Medicated Feeding Stuff
+T721	Physical-Form 6315 6335	Ear Drops Suspension
+T722	Target-Species 6340 6344	Dogs
+T723	Physical-Form 6377 6411	Premix for Medicated Feeding Stuff
+T724	Target-Species 6416 6420	Pigs
+T725	Target-Species 6458 6462	Dogs
+T726	Target-Species 6528 6532	Pigs
+T727	Target-Species 6602 6606	Pigs
+T728	Target-Species 6589 6597	Chickens
+T729	Target-Species 6692 6698	Cattle
+T730	Target-Species 6700 6705	Sheep
+T731	Target-Species 6707 6711	Pigs
+T732	Target-Species 6716 6724	Chickens
+T733	Target-Species 6851 6857	Cattle
+T734	Target-Species 6862 6866	Pigs
+T735	Target-Species 6903 6907	Cats
+T736	Target-Species 6912 6916	Dogs
+T737	Target-Species 6954 6958	Dogs
+T738	Target-Species 6997 7001	Dogs
+T739	Target-Species 7047 7053	Cattle
+T740	Target-Species 7058 7062	Pigs
+T741	Target-Species 7203 7207	Pigs
+T742	Target-Species 7267 7273	Cattle
+T743	Target-Species 7275 7280	Sheep
+T744	Target-Species 7285 7289	Pigs
+T745	Target-Species 7336 7340	Pigs
+T746	Physical-Form 6436 6453	Palatable Tablets
+T747	Physical-Form 6489 6523	Premix for Medicated Feeding Stuff
+T748	Physical-Form 6552 6584	Powder for Use in Drinking Water
+T749	Physical-Form 6632 6661	Concentrate for Oral Solution
+T750	Physical-Form 6653 6686	Solution for Use in Drinking Wate
+T751	Physical-Form 6735 6758	Intramammary Suspension
+T752	Physical-Form 6891 6898	Tablets
+T753	Physical-Form 6942 6949	Tablets
+T754	Physical-Form 6985 6992	Tablets
+T455	Physical-Form 7164 7198	Granules for Use in Drinking Water
+T755	Physical-Form 7235 7250	Cutaneous Spray
+T756	Physical-Form 7235 7244;7252 7262	Cutaneous Suspension
+T757	Sub-Brand 7218 7223	Spray
+R164	Brand-Sub Arg1:T420 Arg2:T757	
