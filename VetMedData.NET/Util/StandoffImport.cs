@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using DocumentFormat.OpenXml.Drawing;
 
 namespace VetMedData.NET.Util
 {
     public static class StandoffImport
     {
         /// <summary>
+        /// Look for "Type" entities from brat by 'T' prefix
+        /// </summary>
+        private const char EntityPrefix = 'T';
+
+        /// <summary>
         /// Parses brat annotation.conf file and extracts the entities section
         /// </summary>
-        /// <param name="pathToAnnotationConf">path to annotation.conf file</param>
+        /// <param name="pathToAnnotationConfig">path to annotation.conf file</param>
         /// <returns>Entities defined within file</returns>
-        public static IEnumerable<string> GetEntitiesFromConfig(string pathToAnnotationConf)
+        public static IEnumerable<string> GetEntitiesFromConfig(string pathToAnnotationConfig)
         {
             var outList = new List<string>();
 
-            var confLines = File.ReadAllLines(pathToAnnotationConf);
+            var confLines = File.ReadAllLines(pathToAnnotationConfig);
             var entitySection = false;
             foreach (var confLine in confLines)
             {
@@ -68,9 +72,9 @@ namespace VetMedData.NET.Util
             {
                 while (!fs.EndOfStream)
                 {
-                    var ln = fs.ReadLine().Split('\t');
-                    if (ln.Length==0 || ln.All(string.IsNullOrWhiteSpace)) continue;
-                    if (!ln[0].StartsWith('T')) continue;
+                    var ln = fs.ReadLine()?.Split('\t');
+                    if (ln == null || ln.Length==0 || ln.All(string.IsNullOrWhiteSpace)) continue;
+                    if (!ln[0].StartsWith(EntityPrefix)) continue;
 
                     var inner = ln[1].Split(' ');
 
@@ -94,5 +98,16 @@ namespace VetMedData.NET.Util
 
             return outDictionary;
         }
+
+        internal static Dictionary<string, List<Tuple<string, string>>> ParseAll(string directoryPath)
+        {
+            var outDict = new Dictionary<string, List<Tuple<string, string>>>();
+
+            foreach (var (key, value) in Directory.GetFiles(directoryPath)
+                .SelectMany(ParseBrat)) outDict[key] = value;
+
+            return outDict;
+        }
+
     }
 }

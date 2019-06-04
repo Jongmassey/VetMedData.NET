@@ -44,5 +44,13 @@ namespace VetMedData.CLI
             };
             ga.Start();
         }
+
+        public static void Optimise(string[] args)
+        {
+            if (args.Length > 1 && args[0].Equals("optimise", StringComparison.InvariantCultureIgnoreCase))
+            {
+                GALearnWeights(args[1]);
+            }
+        }
     }
 }

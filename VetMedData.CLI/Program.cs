@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using VetMedData.NET.Model;
+using VetMedData.NET.Util;
 
 namespace VetMedData.CLI
 {
@@ -7,31 +11,57 @@ namespace VetMedData.CLI
     {
         private static void Main(string[] args)
         {
-            if (args.Length > 0 && File.Exists(args[0]))
+            if (args.Length > 0)
             {
-                MatchRunner.MatchFile(args[0]);
+                switch (args[0].ToLowerInvariant())
+                {
+                    case "match":
+                        MatchRunner.Match(args);
+                        break;
+                    case "optimise":
+                        Optimisation.Optimise(args);
+                        break;
+                    case "print":
+                        PrintPIDProperty(args[1]);
+                        break;
+                    default:
+                        PrintUsage();
+                        break;
+                }
             }
-            else if (args.Length > 0 && args[0].Equals("print", StringComparison.InvariantCultureIgnoreCase))
+            PrintUsage();
+        }
+
+        private static void PrintUsage()
+        {
+            Console.WriteLine("keywords: match|optimise|print");
+            Console.ReadLine();
+        }
+
+
+        internal static void PrintPIDProperty(string propName)
+        {
+            var pidProperties = typeof(VMDPID).GetProperties();
+            try
             {
-                MatchRunner.PrintPIDProperty(args[1]);
+                var prop = pidProperties.Single(
+                        p => p.Name.Equals(propName, StringComparison.InvariantCultureIgnoreCase));
+
+                var pid = VMDPIDFactory.GetVmdPid(PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
+                                                  PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
+                                                  PidFactoryOptions.PersistentPid).Result;
+
+                var values = (IEnumerable<string>)prop.GetValue(pid);
+                foreach (var value in values.Distinct().OrderBy(s => s))
+                {
+                    Console.WriteLine(value);
+                }
             }
-            else if (args.Length > 1 && args[0].Equals("explainmatch"))
+            catch (Exception)
             {
-                MatchRunner.ExplainMatch(args[1], args[2]);
-            }
-            else if (args.Length > 2 && args[0].Equals("explain"))
-            {
-                MatchRunner.Explain(args[1], args[2]);
-            }
-            else if (args.Length > 1 && args[0].Equals("optimise", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Optimisation.GALearnWeights(args[1]);
-            }
-            else
-            {
-                Console.WriteLine("Requires path to file to process as first argument.");
-                Console.ReadLine();
+                Console.WriteLine($"Property {propName} not found in VMDPID");
             }
         }
+
     }
 }

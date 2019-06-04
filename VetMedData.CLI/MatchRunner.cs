@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -15,6 +14,59 @@ namespace VetMedData.CLI
 {
     internal class MatchRunner
     {
+
+        private const string usage = @"match [fileToMatch]
+match explainmatch [inputString] [refVMNo]
+match explain [productName] [commaSeparatedSpeciesList]
+match semantic [fileToMatch] [pathToBratFolder]";
+
+
+        internal static void Match(string[] args)
+        {
+            switch (args.Length)
+            {
+                case 2:
+                    if (File.Exists(args[1]))
+                    {
+                        MatchFile(args[1]);
+                        return;
+                    }
+
+                    Console.WriteLine("fileToMatch doesn't exist");
+                    break;
+                case 4:
+                    switch (args[1])
+                    {
+                        case "explainmatch":
+                            ExplainMatch(args[1], args[2]);
+                            return;
+                        case "explain":
+                            Explain(args[1], args[2]);
+                            return;
+                        case "semantic":
+                            if (File.Exists(args[2]) && Directory.Exists(args[3]))
+                            {
+                                SemanticallyMatchFile(args[2], args[3]);
+                                return;
+                            }
+
+                            Console.WriteLine("fileToMatch or pathToBratFolder not found");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            Console.WriteLine(usage);
+        }
+        
+        internal static void SemanticallyMatchFile(string pathToInputFile, string pathToBratFolder)
+        {
+        }
+
         internal static void MatchFile(string pathToInputFile)
         {
             var sb = new StringBuilder("\"Input Name\",\"Matched Name\",\"VM Number\",\"Similarity Score\"" + Environment.NewLine);
@@ -71,7 +123,7 @@ namespace VetMedData.CLI
 
             var ap = new ActionedProduct
             {
-                Product = new Product { Name = name },
+                Product = new Product { Name = name }
             };
 
             var refprod = pid.AllProducts.Single(p => p.VMNo.Equals(refVMNo));
@@ -128,28 +180,6 @@ namespace VetMedData.CLI
             }
         }
 
-        internal static void PrintPIDProperty(string propName)
-        {
-            var pidProperties = typeof(VMDPID).GetProperties();
-            try
-            {
-                var prop = pidProperties.Single(
-                    p => p.Name.Equals(propName, StringComparison.InvariantCultureIgnoreCase));
 
-                var pid = VMDPIDFactory.GetVmdPid(PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
-                                                  PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
-                                                  PidFactoryOptions.PersistentPid).Result;
-
-                var values = (IEnumerable<string>)prop.GetValue(pid);
-                foreach (var value in values.Distinct().OrderBy(s => s))
-                {
-                    Console.WriteLine(value);
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine($"Property {propName} not found in VMDPID");
-            }
-        }
     }
 }
