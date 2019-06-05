@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -18,7 +20,10 @@ namespace VetMedData.CLI
         private const string usage = @"match [fileToMatch]
 match explainmatch [inputString] [refVMNo]
 match explain [productName] [commaSeparatedSpeciesList]
-match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]";
+match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]
+match semantic explainmatch [inputString] [refVMNo]
+match semantic explain [productName] [commaSeparatedSpeciesList]";
+
 
         internal static void Match(string[] args)
         {
@@ -37,10 +42,10 @@ match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]";
                     switch (args[1])
                     {
                         case "explainmatch":
-                            ExplainMatch(args[1], args[2]);
+                            ExplainMatch(args[2], args[3]);
                             return;
                         case "explain":
-                            Explain(args[1], args[2]);
+                            Explain(args[2], args[3]);
                             return;
                         default:
                             break;
@@ -57,6 +62,19 @@ match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]";
                         Console.WriteLine("fileToMatch or pathToBratFolder not found");
                     }
                     break;
+                case 6:
+                    switch (args[2])
+                    {
+                        case "explainmatch":
+                            ExplainMatch(args[3], args[4]);
+                            return;
+                        case "explain":
+                            Explain(args[3], args[4]);
+                            return;
+                        default:
+                            break;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -66,9 +84,10 @@ match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]";
         
         internal static void SemanticallyMatchFile(string pathToInputFile, string pathToBratFolder, string commaSeparatedWeights)
         {
+            double[] weights;
             try
             {
-                var weights = commaSeparatedWeights.Split(',').Select(double.Parse);
+                weights = commaSeparatedWeights.Split(',').Select(double.Parse).ToArray();
             }
             catch (Exception e)
             {
@@ -76,7 +95,23 @@ match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]";
                 Console.WriteLine(e);
                 throw;
             }
-            
+
+            var tagDic = StandoffImport.ParseAll(pathToBratFolder);
+            var tags = StandoffImport.GetEntitiesFromConfig(Path.Combine(pathToBratFolder, "annotation.conf")).ToArray();
+            var tagWeights = new Dictionary<string, double>();
+            for (var i = 0; i < tags.Count(); i++)
+            {
+                tagWeights[tags[i]] = weights[i];
+            }
+
+            var semanticConfig = new DefaultSemanticallyWeightedNameMetricConfig(tagWeights,tagDic);
+
+            var pmc = new DefaultProductMatchConfig()
+            {
+
+            };
+
+
         }
 
         internal static void MatchFile(string pathToInputFile)

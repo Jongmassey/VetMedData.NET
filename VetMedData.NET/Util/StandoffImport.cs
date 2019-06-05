@@ -99,7 +99,7 @@ namespace VetMedData.NET.Util
             return outDictionary;
         }
 
-        internal static Dictionary<string, List<Tuple<string, string>>> ParseAll(string directoryPath)
+        public static Dictionary<string, List<Tuple<string, string>>> ParseAll(string directoryPath)
         {
             var outDict = new Dictionary<string, List<Tuple<string, string>>>();
 

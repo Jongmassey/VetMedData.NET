@@ -60,7 +60,8 @@ namespace VetMedData.NET.ProductMatching
             InputProduct = product,
             ReferenceProduct = referenceProduct,
             ProductNameSimilarity =
-                    new ProductNameMetric(cfg.NameMetricConfig)
+                    //new PositionalNameMetric(cfg.NameMetricConfig)
+                    cfg.Metric
                         .GetSimilarity(product.Product.Name, referenceProduct.Name)
         };
     }

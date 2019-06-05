@@ -7,7 +7,7 @@ namespace VetMedData.NET.ProductMatching
     /// <summary>
     /// Configures medicine similarity metric behaviour
     /// </summary>
-    public abstract class ProductNameMetricConfig
+    public abstract class PositionalNameMetricConfig: MetricConfig
     {
         /// <summary>
         /// String similarity metric to use when comparing names
@@ -39,9 +39,9 @@ namespace VetMedData.NET.ProductMatching
         public double ABCompoundPositionalWeightRatio { get; set; }
     }
 
-    public class DefaultProductNameMetricConfig : ProductNameMetricConfig
+    public class DefaultPositionalNameMetricConfig : PositionalNameMetricConfig
     {
-        public DefaultProductNameMetricConfig()
+        public DefaultPositionalNameMetricConfig()
         {
             InnerMetric = new Levenstein();
             NameCleaningConfig = new DefaultMatchNameCleaningConfig();

@@ -13,7 +13,7 @@ namespace VetMedData.Tests
         [TestMethod]
         public void TestIdenticalStrings()
         {
-            var pnm = new ProductNameMetric();
+            var pnm = new PositionalNameMetric();
             string[][] testsStrings = {
                 new[] {"TestString", "TestString"},
                 new[] {"Test String", "Test String"}
@@ -30,7 +30,7 @@ namespace VetMedData.Tests
         [TestMethod]
         public void TestSingleStringWithKnownSimilarity()
         {
-            var pnm = new ProductNameMetric();
+            var pnm = new PositionalNameMetric();
             string[] testStringPair = {"teststring", "teststrang"};
             var sim = pnm.GetSimilarity(testStringPair[0], testStringPair[1]);
             Assert.IsTrue(0.9d == sim ,

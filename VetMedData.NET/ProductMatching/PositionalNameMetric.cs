@@ -1,27 +1,32 @@
-﻿using SimMetrics.Net.API;
-using System;
+﻿using System;
 using System.Diagnostics;
 
 namespace VetMedData.NET.ProductMatching
 {
-    public class ProductNameMetric : AbstractStringMetric
+    public class PositionalNameMetric : SimilarityMetric
     {
-        private readonly ProductNameMetricConfig _config;
-        public ProductNameMetric(ProductNameMetricConfig conf = null)
-        {
-            _config = conf ?? new DefaultProductNameMetricConfig();
-        }
+        private PositionalNameMetricConfig PositionalConfig => (PositionalNameMetricConfig)_config;
+
         /// <summary>
         /// Calculate average token-pair similarity weighted by token position as
-        /// per ProductNameMetricConfig.
+        /// per PositionalNameMetricConfig.
         /// </summary>
         /// <param name="firstWord">"A" input product name.</param>
         /// <param name="secondWord">"B" reference product name.</param>
         /// <returns>Product name similarity</returns>
+        public PositionalNameMetric(PositionalNameMetricConfig config) : base(config)
+        {
+        }
+
+        public PositionalNameMetric() : base(new DefaultPositionalNameMetricConfig())
+        {
+        }
+
         public override double GetSimilarity(string firstWord, string secondWord)
         {
-            var aTokens = _config.Tokeniser.Tokenize(firstWord);
-            var bTokens = _config.Tokeniser.Tokenize(secondWord);
+
+            var aTokens = PositionalConfig.Tokeniser.Tokenize(firstWord);
+            var bTokens = PositionalConfig.Tokeniser.Tokenize(secondWord);
 
             var totalSim = 0d;
             var totalDivisor = 0d;
@@ -34,7 +39,7 @@ namespace VetMedData.NET.ProductMatching
 
                 for (var bIndex = 0; bIndex < bTokens.Count; bIndex++)
                 {
-                    var sim = _config.InnerMetric.GetSimilarity(aTokens[aIndex], bTokens[bIndex]);
+                    var sim = PositionalConfig.InnerMetric.GetSimilarity(aTokens[aIndex], bTokens[bIndex]);
                     // ReSharper disable once InvertIf
                     if (sim > maxSim)
                     {
@@ -44,10 +49,10 @@ namespace VetMedData.NET.ProductMatching
                     }
                 }
 
-                var aWeight = Math.Pow(maxSimAIndex, _config.APositionalWeightingCoefficientPower);
-                var bWeight = Math.Pow(maxSimBIndex, _config.BPositionalWeightingCoefficientPower);
-                var netWeight = aWeight * (1 - _config.ABCompoundPositionalWeightRatio) +
-                                bWeight * _config.ABCompoundPositionalWeightRatio;
+                var aWeight = Math.Pow(maxSimAIndex, PositionalConfig.APositionalWeightingCoefficientPower);
+                var bWeight = Math.Pow(maxSimBIndex, PositionalConfig.BPositionalWeightingCoefficientPower);
+                var netWeight = aWeight * (1 - PositionalConfig.ABCompoundPositionalWeightRatio) +
+                                bWeight * PositionalConfig.ABCompoundPositionalWeightRatio;
 
                 if (aWeight.Equals(double.NaN)
                     ||
@@ -93,5 +98,7 @@ namespace VetMedData.NET.ProductMatching
 
         public override string LongDescriptionString { get; }
         public override string ShortDescriptionString { get; }
+
+
     }
 }

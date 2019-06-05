@@ -2,7 +2,8 @@
 {
     public abstract class ProductMatchConfig
     {
-        public ProductNameMetricConfig NameMetricConfig { get; set; }
+        public SimilarityMetric Metric { get; set; }
+       // public MetricConfig NameMetricConfig { get; set; }
         public IProductMatchDisambiguator Disambiguator { get; set; }
         public IProductMatchResultFilter DisambiguationCandidiateFilter { get; set; }
     }
@@ -11,7 +12,8 @@
     {
         public DefaultProductMatchConfig()
         {
-            NameMetricConfig = new DefaultProductNameMetricConfig();
+            Metric = new PositionalNameMetric(new DefaultPositionalNameMetricConfig());
+            //NameMetricConfig = new DefaultPositionalNameMetricConfig();
             Disambiguator = new HierarchicalFilterWithRandomFinalSelect(
                 new OrderedFilterBasedDisambiguatorConfig
                 {

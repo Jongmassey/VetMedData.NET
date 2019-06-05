@@ -10,7 +10,7 @@ using VetMedData.NET.Util;
 
 namespace VetMedData.NET.ProductMatching
 {
-    public abstract class SemanticallyWeightedNameMetricConfig
+    public abstract class SemanticallyWeightedNameMetricConfig :MetricConfig
     {
         /// <summary>
         /// String similarity metric to use when comparing names

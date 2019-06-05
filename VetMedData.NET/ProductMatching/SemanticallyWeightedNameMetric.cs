@@ -2,17 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SimMetrics.Net.Metric;
 
 namespace VetMedData.NET.ProductMatching
 {
-    public class SemanticallyWeightedNameMetric : AbstractStringMetric
+    public class SemanticallyWeightedNameMetric : SimilarityMetric
     {
-        private readonly SemanticallyWeightedNameMetricConfig _config;
-        public SemanticallyWeightedNameMetric(SemanticallyWeightedNameMetricConfig conf = null)
+        private SemanticallyWeightedNameMetricConfig SemanticConfig => (SemanticallyWeightedNameMetricConfig) _config;
+        public SemanticallyWeightedNameMetric(SemanticallyWeightedNameMetricConfig config) : base(config)
         {
-            _config = conf ?? new DefaultSemanticallyWeightedNameMetricConfig();
         }
+
+        public SemanticallyWeightedNameMetric() : base(new DefaultSemanticallyWeightedNameMetricConfig())
+        {
+        }
+
         public override double GetSimilarity(string firstWord, string secondWord)
         {
             var vec = GetVectorSimilarity(firstWord, secondWord);
@@ -23,12 +26,9 @@ namespace VetMedData.NET.ProductMatching
         {
             var outList = new List<Tuple<double, double>>();
 
-            var bTokens = _config.Tokeniser.Tokenize(secondWord);
+            var bTokens = SemanticConfig.Tokeniser.Tokenize(secondWord);
 
-            var totalSim = 0d;
-            var totalDivisor = 0d;
-
-            var aTags = _config.TagDictionary[firstWord];
+            var aTags = SemanticConfig.TagDictionary[firstWord];
 
             foreach (var bToken in bTokens)
             {
@@ -36,18 +36,14 @@ namespace VetMedData.NET.ProductMatching
                 var weight = 0d;
                 foreach (var aToken in aTags)
                 {
-                    var sim = _config.InnerMetric.GetSimilarity(aToken.Item2.ToLowerInvariant(), bToken.ToLowerInvariant());
+                    var sim = SemanticConfig.InnerMetric.GetSimilarity(aToken.Item2.ToLowerInvariant(), bToken.ToLowerInvariant());
 
                     if (!(sim > maxSim)) continue;
                     maxSim = sim;
-                    weight = _config.TagWeights[aToken.Item1];
+                    weight = SemanticConfig.TagWeights[aToken.Item1];
 
                 }
-
-                //if (maxSim > 0)
-                //{
-                    outList.Add(new Tuple<double, double>(maxSim, weight));
-                //}
+                outList.Add(new Tuple<double, double>(maxSim, weight));
             }
 
             return outList;
