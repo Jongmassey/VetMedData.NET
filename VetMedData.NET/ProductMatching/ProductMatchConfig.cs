@@ -1,19 +1,22 @@
-﻿namespace VetMedData.NET.ProductMatching
+﻿using System;
+
+namespace VetMedData.NET.ProductMatching
 {
     public abstract class ProductMatchConfig
     {
         public SimilarityMetric Metric { get; set; }
-       // public MetricConfig NameMetricConfig { get; set; }
         public IProductMatchDisambiguator Disambiguator { get; set; }
-        public IProductMatchResultFilter DisambiguationCandidiateFilter { get; set; }
+        public IProductMatchResultFilter DisambiguationCandidateFilter { get; set; }
     }
 
     public class DefaultProductMatchConfig : ProductMatchConfig
     {
-        public DefaultProductMatchConfig()
+        public DefaultProductMatchConfig(MetricConfig metricConfig = null)
         {
-            Metric = new PositionalNameMetric(new DefaultPositionalNameMetricConfig());
-            //NameMetricConfig = new DefaultPositionalNameMetricConfig();
+            Metric = 
+                (metricConfig?? new DefaultPositionalNameMetricConfig()) is SemanticallyWeightedNameMetricConfig?
+               (SimilarityMetric) new SemanticallyWeightedNameMetric(new DefaultSemanticallyWeightedNameMetricConfig()):
+                 new PositionalNameMetric(new DefaultPositionalNameMetricConfig());
             Disambiguator = new HierarchicalFilterWithRandomFinalSelect(
                 new OrderedFilterBasedDisambiguatorConfig
                 {
@@ -23,7 +26,7 @@
                         new RandomSelectFilter()
                     }
                 });
-            DisambiguationCandidiateFilter = new MaximalSimilarityResultFilter();
+            DisambiguationCandidateFilter = new MaximalSimilarityResultFilter();
         }
     }
 

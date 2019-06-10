@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -17,7 +16,7 @@ namespace VetMedData.CLI
     internal class MatchRunner
     {
 
-        private const string usage = @"match [fileToMatch]
+        private const string Usage = @"match [fileToMatch]
 match explainmatch [inputString] [refVMNo]
 match explain [productName] [commaSeparatedSpeciesList]
 match semantic [fileToMatch] [pathToBratFolder] [commaSeparatedEntityWeights]
@@ -32,7 +31,7 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                 case 2:
                     if (File.Exists(args[1]))
                     {
-                        MatchFile(args[1]);
+                        PositionallyMatchFile(args[1]);
                         return;
                     }
 
@@ -47,6 +46,7 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                         case "explain":
                             Explain(args[2], args[3]);
                             return;
+                        // ReSharper disable once RedundantEmptySwitchSection
                         default:
                             break;
                     }
@@ -56,7 +56,7 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                     {
                         if (File.Exists(args[2]) && Directory.Exists(args[3]))
                         {
-                            SemanticallyMatchFile(args[2], args[3],args[4]);
+                            SemanticallyMatchFile(args[2], args[3], args[4]);
                             return;
                         }
                         Console.WriteLine("fileToMatch or pathToBratFolder not found");
@@ -71,17 +71,19 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                         case "explain":
                             Explain(args[3], args[4]);
                             return;
+                        // ReSharper disable once RedundantEmptySwitchSection
                         default:
                             break;
                     }
                     break;
+                // ReSharper disable once RedundantEmptySwitchSection
                 default:
                     break;
             }
 
-            Console.WriteLine(usage);
+            Console.WriteLine(Usage);
         }
-        
+
         internal static void SemanticallyMatchFile(string pathToInputFile, string pathToBratFolder, string commaSeparatedWeights)
         {
             double[] weights;
@@ -104,23 +106,18 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                 tagWeights[tags[i]] = weights[i];
             }
 
-            var semanticConfig = new DefaultSemanticallyWeightedNameMetricConfig(tagWeights,tagDic);
+            var semanticConfig = new DefaultSemanticallyWeightedNameMetricConfig(tagWeights, tagDic);
 
-            var pmc = new DefaultProductMatchConfig()
-            {
-
-            };
-
-
+            RunMatchFile(pathToInputFile, semanticConfig);
         }
 
-        internal static void MatchFile(string pathToInputFile)
+        private static void RunMatchFile(string pathToInputFile, MetricConfig metricConfig = null)
         {
             var sb = new StringBuilder("\"Input Name\",\"Matched Name\",\"VM Number\",\"Similarity Score\"" + Environment.NewLine);
             var pid = VMDPIDFactory.GetVmdPid(PidFactoryOptions.GetTargetSpeciesForExpiredEmaProduct |
                                               PidFactoryOptions.GetTargetSpeciesForExpiredVmdProduct |
                                               PidFactoryOptions.PersistentPid).Result;
-            var cfg = new DefaultProductMatchConfig();
+            var cfg = new DefaultProductMatchConfig(metricConfig);
             var pmr = new ProductMatchRunner(cfg);
             var sw = Stopwatch.StartNew();
 
@@ -156,6 +153,12 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                 }
             });
             Console.WriteLine(sb.ToString());
+
+        }
+
+        internal static void PositionallyMatchFile(string pathToInputFile)
+        {
+            RunMatchFile(pathToInputFile);
         }
 
         internal static void ExplainMatch(string inputString, string refVMNo)
@@ -165,7 +168,6 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
                                               PidFactoryOptions.PersistentPid).Result;
 
             var cfg = new DefaultProductMatchConfig();
-            var pmr = new ProductMatchRunner(cfg);
             var name = inputString;
 
             var ap = new ActionedProduct
@@ -200,6 +202,7 @@ match semantic explain [productName] [commaSeparatedSpeciesList]";
             var mr = pmr.GetMatchResults(ap, pid.RealProducts).ToArray();
             var dc = pmr.GetDisambiguationCandidates(mr).ToArray();
             var res = pmr.GetMatch(ap, pid.RealProducts);
+
             Console.WriteLine("Matched product:");
             Console.WriteLine(string.Join('\t', res.ReferenceProduct.Name, res.ReferenceProduct.VMNo, res.ProductNameSimilarity.ToString(CultureInfo.InvariantCulture)));
             Console.WriteLine();

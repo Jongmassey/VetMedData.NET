@@ -20,7 +20,7 @@ namespace VetMedData.NET.ProductMatching
 
         public IEnumerable<ProductSimilarityResult> GetDisambiguationCandidates(IEnumerable<ProductSimilarityResult> matchResults)
         {
-            return _cfg.DisambiguationCandidiateFilter.FilterResults(matchResults);
+            return _cfg.DisambiguationCandidateFilter.FilterResults(matchResults);
         }
 
         public ProductSimilarityResult GetMatch(ActionedProduct p, IEnumerable<ReferenceProduct> referenceProductSet)
