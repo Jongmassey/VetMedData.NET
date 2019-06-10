@@ -2,7 +2,7 @@
   "profiles": {
     "VetMedData.CLI": {
       "commandName": "Project",
-      "commandLineArgs": "optimise nmltruth.csv"
+      "commandLineArgs": "match semantic C:\\Users\\jm4359\\source\\repos\\VetMedData.NET\\VetMedData.CLI\\NMLin.txt C:\\Users\\jm4359\\source\\repos\\VetMedData.NET\\VetMedData.NET.Tests\\TestFiles\\TestStandoffImport 1,1,1,1,1,1,1,1,1"
     }
   }
 }

@@ -103,7 +103,7 @@ namespace VetMedData.NET.Util
         {
             var outDict = new Dictionary<string, List<Tuple<string, string>>>();
 
-            foreach (var (key, value) in Directory.GetFiles(directoryPath)
+            foreach (var (key, value) in Directory.GetFiles(directoryPath, "*.txt")
                 .SelectMany(ParseBrat)) outDict[key] = value;
 
             return outDict;
