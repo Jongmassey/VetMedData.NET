@@ -16,16 +16,16 @@ namespace VetMedData.CLI
                 {
                     case "match":
                         MatchRunner.Match(args);
-                        break;
+                        return;
                     case "optimise":
                         Optimisation.Optimise(args);
-                        break;
+                        return;
                     case "print":
                         PrintPIDProperty(args[1]);
-                        break;
+                        return;
                     default:
                         PrintUsage();
-                        break;
+                        return;
                 }
             }
             PrintUsage();

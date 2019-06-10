@@ -18,31 +18,34 @@ namespace VetMedData.NET.ProductMatching
 
         public override double GetSimilarity(string firstWord, string secondWord)
         {
-            var vec = GetVectorSimilarity(firstWord, secondWord);
+            var vec = GetVectorSimilarity(secondWord, firstWord);
             return vec.Select(v => v.Item1 * v.Item2).Sum() / vec.Sum(v => v.Item2);
         }
 
-        public IEnumerable<Tuple<double, double>> GetVectorSimilarity(string firstWord, string secondWord)
+        public IEnumerable<Tuple<double, double>> GetVectorSimilarity(string referenceWord, string testWord)
         {
             var outList = new List<Tuple<double, double>>();
 
-            var bTokens = SemanticConfig.Tokeniser.Tokenize(secondWord);
+            var inputTokens = SemanticConfig.Tokeniser.Tokenize(testWord);
 
-            var aTags = SemanticConfig.TagDictionary[firstWord];
+            var referenceTags = SemanticConfig.TagDictionary.SingleOrDefault(k =>
+                k.Key.Equals(referenceWord, StringComparison.InvariantCultureIgnoreCase)).Value; //SemanticConfig.TagDictionary[referenceWord];
 
-            foreach (var bToken in bTokens)
+            foreach (var inputToken in inputTokens)
             {
                 var maxSim = 0d;
                 var weight = 0d;
-                foreach (var aToken in aTags)
-                {
-                    var sim = SemanticConfig.InnerMetric.GetSimilarity(aToken.Item2.ToLowerInvariant(), bToken.ToLowerInvariant());
+                if (referenceTags != null)
+                    foreach (var (tag, referenceToken) in referenceTags)
+                    {
+                        var sim = SemanticConfig.InnerMetric.GetSimilarity(referenceToken.ToLowerInvariant(),
+                            inputToken.ToLowerInvariant());
 
-                    if (!(sim > maxSim)) continue;
-                    maxSim = sim;
-                    weight = SemanticConfig.TagWeights[aToken.Item1];
+                        if (!(sim > maxSim)) continue;
+                        maxSim = sim;
+                        weight = SemanticConfig.TagWeights[tag];
+                    }
 
-                }
                 outList.Add(new Tuple<double, double>(maxSim, weight));
             }
 

@@ -13,10 +13,10 @@ namespace VetMedData.NET.ProductMatching
     {
         public DefaultProductMatchConfig(MetricConfig metricConfig = null)
         {
-            Metric = 
-                (metricConfig?? new DefaultPositionalNameMetricConfig()) is SemanticallyWeightedNameMetricConfig?
-               (SimilarityMetric) new SemanticallyWeightedNameMetric(new DefaultSemanticallyWeightedNameMetricConfig()):
-                 new PositionalNameMetric(new DefaultPositionalNameMetricConfig());
+            Metric =
+                (metricConfig ?? new DefaultPositionalNameMetricConfig()) is SemanticallyWeightedNameMetricConfig ?
+               (SimilarityMetric)new SemanticallyWeightedNameMetric((SemanticallyWeightedNameMetricConfig)metricConfig) :
+                 new PositionalNameMetric((DefaultPositionalNameMetricConfig)metricConfig ?? new DefaultPositionalNameMetricConfig());
             Disambiguator = new HierarchicalFilterWithRandomFinalSelect(
                 new OrderedFilterBasedDisambiguatorConfig
                 {
