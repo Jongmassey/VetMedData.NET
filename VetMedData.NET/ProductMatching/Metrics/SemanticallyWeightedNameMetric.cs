@@ -1,5 +1,4 @@
-﻿using SimMetrics.Net.API;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,6 +32,7 @@ namespace VetMedData.NET.ProductMatching
 
             foreach (var inputToken in inputTokens)
             {
+                //TODO: max inner similarity thresholding?
                 var maxSim = 0d;
                 var weight = 0d;
                 if (referenceTags != null)

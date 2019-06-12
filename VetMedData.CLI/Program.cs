@@ -23,6 +23,10 @@ namespace VetMedData.CLI
                     case "print":
                         PrintPIDProperty(args[1]);
                         return;
+                    case "combinebrat":
+
+                        CombineBrat(args[1]);
+                        return;
                     default:
                         PrintUsage();
                         return;
@@ -59,6 +63,11 @@ namespace VetMedData.CLI
             {
                 Console.WriteLine($"Property {propName} not found in VMD PID");
             }
+        }
+
+        internal static void CombineBrat(string pathToBratDirectory)
+        {
+            StandoffImport.CombineFiles(pathToBratDirectory);
         }
     }
 }
