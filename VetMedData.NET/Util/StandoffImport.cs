@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -132,7 +133,7 @@ namespace VetMedData.NET.Util
                 {'R', new Tuple<int,int>(0,0)},
             };
 
-            foreach (var textFile in inputDir.GetFiles("*.txt"))
+            foreach (var textFile in inputDir.GetFiles("*.txt").OrderBy(f=>f.Name).ToImmutableArray())
             {
 
                 //copy annotations to output, updating offsets
@@ -174,7 +175,7 @@ namespace VetMedData.NET.Util
                                 }
                                 else
                                 {
-                                    innerSplit[i] = $"{int.Parse(charOffset + innerSplit[i])}";
+                                    innerSplit[i] = $"{charOffset + int.Parse(innerSplit[i])}";
                                 }
                             }
                         }
@@ -192,7 +193,8 @@ namespace VetMedData.NET.Util
 
                         outerSplit[1] = string.Join(' ', innerSplit);
 
-                        outputAnn.WriteLine(string.Join('\t',outerSplit));
+                        //outputAnn.WriteLine(string.Join('\t',outerSplit));
+                        outputAnn.Write(string.Join('\t', outerSplit) + '\n');
                     }
                 }
 
@@ -205,7 +207,8 @@ namespace VetMedData.NET.Util
                     {
                         var ln = inputText.ReadLine();
                         charOffset += ln.Length + 1;
-                        outputText.WriteLine(ln);
+                        outputText.Write(ln+'\n');
+                        //outputText.WriteLine(ln);
                     }
                 }
 
