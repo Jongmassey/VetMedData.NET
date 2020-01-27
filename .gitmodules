@@ -5,5 +5,5 @@
 	path = VetMedData.NET.Tests
 	url = https://github.com/Jongmassey/VetMedData.NET.Tests.git
 [submodule "VetMedData.NET.CLI"]
-	path = VetMedData.NET.CLI
+	path = VetMedData.CLI
 	url = https://github.com/Jongmassey/VetMedData.NET.CLI.git
