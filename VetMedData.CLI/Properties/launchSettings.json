@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "VetMedData.CLI": {
-      "commandName": "Project",
-      "commandLineArgs": "optimise nmltruth.csv"
-    }
-  }
-}

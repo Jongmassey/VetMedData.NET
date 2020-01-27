@@ -1,0 +1,9 @@
+[submodule "VetMedData.NET"]
+	path = VetMedData.NET
+	url = https://github.com/Jongmassey/VetMedData.NET.lib.git
+[submodule "VetMedData.NET.Tests"]
+	path = VetMedData.NET.Tests
+	url = https://github.com/Jongmassey/VetMedData.NET.Tests.git
+[submodule "VetMedData.NET.CLI"]
+	path = VetMedData.NET.CLI
+	url = https://github.com/Jongmassey/VetMedData.NET.CLI.git
