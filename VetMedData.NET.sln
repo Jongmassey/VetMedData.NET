@@ -16,6 +16,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetMedData.CLI", "VetMedData.CLI\VetMedData.CLI.csproj", "{6C842882-E7B6-4326-B11E-9E4F8BBC5D7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VetMedData.NET.DAL", "VetMedData.NET.DAL\VetMedData.NET.DAL.csproj", "{B6572B0D-7D5E-498E-8115-96ECC608CC6D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FAE22E96-8531-4DB2-9F50-634150988FA6} = {FAE22E96-8531-4DB2-9F50-634150988FA6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
