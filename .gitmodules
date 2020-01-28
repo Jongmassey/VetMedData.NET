@@ -7,3 +7,6 @@
 [submodule "VetMedData.NET.CLI"]
 	path = VetMedData.CLI
 	url = https://github.com/Jongmassey/VetMedData.NET.CLI.git
+[submodule "VetMedData.NET.DAL"]
+	path = VetMedData.NET.DAL
+	url = https://github.com/Jongmassey/VetMedData.NET.DAL.git
